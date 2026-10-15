@@ -1,0 +1,846 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0b1512">
+<meta name="description" content="Treino de torneio offline: push/fold Nash, call contra all-in e contagem de outs.">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Treino MTT">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<title>Treino MTT</title>
+<style>
+:root{
+  --bg:#0b1512; --surface:#13211c; --surface2:#1a2c26; --line:#284139; --text:#eef5f1; --muted:#9db4aa;
+  --accent:#36c27a; --push:#e5484d; --call:#f2a33a; --fold:#3b4b46; --ok:#34c472; --bad:#f0544f; --mix:#b98cf0;
+  --felt1:#17704a; --felt2:#0d4a31; --rail:#3a2a1c;
+  --s-c:#1f9d55; --s-d:#1d6fd6; --s-h:#d62a2a; --s-s:#16191b;
+  --safe-b:env(safe-area-inset-bottom,0px); --safe-t:env(safe-area-inset-top,0px);
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;height:100%;background:var(--bg);color:var(--text);font:15px/1.4 system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;-webkit-text-size-adjust:100%}
+body{overscroll-behavior:none}
+button{font:inherit;color:inherit;border:0;background:none;cursor:pointer;touch-action:manipulation}
+#app{display:flex;flex-direction:column;height:100%;max-width:560px;margin:0 auto}
+.top{display:flex;align-items:center;gap:8px;padding:calc(8px + var(--safe-t)) 16px 8px;border-bottom:1px solid var(--line);background:var(--bg)}
+.top h1{font-size:17px;margin:0;font-weight:650;flex:1;letter-spacing:.2px}
+.score{font-size:13px;color:var(--muted);text-align:right;line-height:1.2;font-variant-numeric:tabular-nums}
+.score b{color:var(--text);font-weight:650}
+.icon-btn{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;color:var(--muted)}
+.icon-btn:active{background:var(--surface2)}
+.icon-btn svg{width:22px;height:22px}
+main{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:12px 16px 16px}
+.tabbar{display:flex;border-top:1px solid var(--line);background:var(--surface);padding-bottom:var(--safe-b)}
+.tabbar button{flex:1;padding:8px 0 7px;display:flex;flex-direction:column;align-items:center;gap:2px;font-size:11.5px;color:var(--muted);min-height:54px}
+.tabbar button svg{width:22px;height:22px}
+.tabbar button[aria-current="page"]{color:var(--accent)}
+/* table */
+.table-wrap{position:relative;width:100%;aspect-ratio:1.75/1;margin:2px 0 6px}
+.felt{position:absolute;inset:14% 9% 16%;border-radius:999px;background:radial-gradient(ellipse at 50% 40%,var(--felt1),var(--felt2) 75%);box-shadow:0 0 0 6px var(--rail),0 0 0 7px #00000060,inset 0 0 30px #0006}
+.pot{position:absolute;left:50%;top:44%;transform:translate(-50%,-50%);font-size:12.5px;color:#d9efe3;background:#0006;padding:3px 9px;border-radius:999px;white-space:nowrap;font-variant-numeric:tabular-nums}
+.seat{position:absolute;transform:translate(-50%,-50%);min-width:48px;padding:3px 6px;border-radius:9px;background:var(--surface2);border:1px solid var(--line);text-align:center;font-size:11px;line-height:1.15;white-space:nowrap}
+.seat .p{font-weight:650;font-size:11.5px}
+.seat .st{color:var(--muted);font-size:10.5px;font-variant-numeric:tabular-nums}
+.seat.folded{opacity:.38}
+.seat.hero{background:#e9f7ef;color:#0b1512;border-color:#fff;box-shadow:0 0 0 2px var(--accent)}
+.seat.hero .st{color:#2c4a3e}
+.seat.shover{border-color:var(--push);box-shadow:0 0 0 2px #e5484d66}
+.seat .tag{display:block;font-size:10px;font-weight:700;color:#fff;background:var(--push);border-radius:6px;padding:0 4px;margin-top:2px}
+.dealer{position:absolute;width:17px;height:17px;border-radius:50%;background:#f4f4f4;color:#111;font-size:10px;font-weight:800;display:grid;place-items:center;transform:translate(-50%,-50%);box-shadow:0 1px 2px #0008}
+.chip{position:absolute;transform:translate(-50%,-50%);font-size:10px;color:#ffe9a8;font-weight:650;white-space:nowrap;font-variant-numeric:tabular-nums}
+/* cards */
+.cards{display:flex;justify-content:center;gap:10px;margin:6px 0}
+.card{width:74px;height:104px;border-radius:9px;background:#fbfbf8;color:#111;position:relative;box-shadow:0 2px 8px #0008;flex:none}
+.card .r{position:absolute;left:8px;top:4px;font-size:30px;font-weight:750;letter-spacing:-1px}
+.card .s{position:absolute;right:7px;bottom:2px;font-size:38px;line-height:1}
+.card.sm{width:44px;height:62px;border-radius:7px}
+.card.sm .r{font-size:19px;left:5px;top:2px}
+.card.sm .s{font-size:22px;right:4px;bottom:1px}
+.card.xs{width:30px;height:42px;border-radius:5px}
+.card.xs .r{font-size:14px;left:3px;top:1px}
+.card.xs .s{font-size:15px;right:3px;bottom:0}
+.c-c{color:var(--s-c)}.c-d{color:var(--s-d)}.c-h{color:var(--s-h)}.c-s{color:var(--s-s)}
+.t-c{color:#4fd08b}.t-d{color:#6aa8ff}.t-h{color:#ff6b6b}.t-s{color:#e9eef0}
+.spotline{text-align:center;color:var(--muted);font-size:13.5px;margin:2px 0 10px}
+.spotline b{color:var(--text)}
+.question{text-align:center;font-size:16px;font-weight:600;margin:8px 0 12px}
+/* actions */
+.actions{display:flex;gap:10px;margin-top:6px}
+.btn{flex:1;min-height:58px;border-radius:14px;font-size:18px;font-weight:750;letter-spacing:.6px;display:flex;align-items:center;justify-content:center;gap:8px}
+.btn:active{transform:scale(.985);filter:brightness(1.08)}
+.btn.push{background:var(--push);color:#fff}
+.btn.call{background:var(--call);color:#1b1206}
+.btn.fold{background:var(--fold);color:#e8efec}
+.btn.next{background:var(--accent);color:#06150d}
+.btn.ghost{background:var(--surface2);color:var(--text);font-size:15px;font-weight:600;min-height:46px;letter-spacing:0}
+.kbd{font-size:11px;opacity:.6;font-weight:600}
+/* feedback */
+.fb{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:14px;margin-top:4px}
+.fb .head{display:flex;align-items:center;gap:10px;font-size:19px;font-weight:750}
+.fb .head .ico{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-size:17px;color:#06150d}
+.fb.ok .head .ico{background:var(--ok)} .fb.bad .head .ico{background:var(--bad);color:#fff}
+.fb.ok .head{color:var(--ok)} .fb.bad .head{color:var(--bad)}
+.fb p{margin:8px 0 0;color:#d6e4de}
+.fb .muted{color:var(--muted);font-size:13px}
+.pill{display:inline-block;padding:1px 8px;border-radius:999px;font-weight:700;font-size:13px}
+.pill.push{background:var(--push);color:#fff}.pill.call{background:var(--call);color:#1b1206}.pill.fold{background:var(--fold);color:#fff}.pill.mix{background:var(--mix);color:#1a0f2a}
+.ev{font-variant-numeric:tabular-nums;font-weight:650}
+.ev.pos{color:var(--ok)}.ev.neg{color:var(--bad)}
+.sticky-next{position:sticky;bottom:-16px;padding:10px 0 4px;background:linear-gradient(transparent,var(--bg) 30%);margin-top:6px;z-index:2}
+.sticky-next .btn{width:100%}
+.drill{display:flex;flex-direction:column;min-height:100%}
+.drill .actions{margin-top:auto;padding:14px 0 4px;position:sticky;bottom:-16px;background:linear-gradient(transparent,var(--bg) 22%);z-index:2}
+/* range grid */
+.grid{display:grid;grid-template-columns:repeat(13,1fr);gap:1.5px;margin-top:10px;user-select:none}
+.cell{aspect-ratio:1;border-radius:3px;font-size:clamp(7.5px,2.25vw,11px);display:grid;place-items:center;color:#cfdcd6;background:#1d2c27;font-weight:600;letter-spacing:-.3px;position:relative;overflow:hidden}
+.cell.on{color:#fff}
+.cell.hero{outline:2.5px solid #fff;outline-offset:-1px;z-index:1;box-shadow:0 0 0 3px #000a}
+.legend{display:flex;gap:12px;flex-wrap:wrap;font-size:12px;color:var(--muted);margin-top:8px;align-items:center}
+.legend i{display:inline-block;width:11px;height:11px;border-radius:3px;vertical-align:-1px;margin-right:4px}
+/* forms */
+.seg{display:flex;background:var(--surface2);border-radius:12px;padding:3px;gap:3px}
+.seg button{flex:1;padding:8px 6px;border-radius:9px;font-weight:600;font-size:14px;color:var(--muted);min-height:40px}
+.seg button[aria-pressed="true"]{background:var(--bg);color:var(--text);box-shadow:0 1px 3px #0006}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips button{padding:7px 11px;border-radius:999px;border:1px solid var(--line);font-size:13.5px;color:var(--muted);min-width:44px;min-height:40px}
+.chips button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#06150d;font-weight:650}
+.label{font-size:12.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.6px;margin:16px 0 8px;font-weight:650}
+.row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--line)}
+.toggle{width:50px;height:30px;border-radius:999px;background:var(--fold);position:relative;flex:none;outline:8px solid transparent}
+.toggle::after{content:"";position:absolute;top:3px;left:3px;width:24px;height:24px;border-radius:50%;background:#fff;transition:left .15s}
+.toggle[aria-checked="true"]{background:var(--accent)}
+.toggle[aria-checked="true"]::after{left:23px}
+.mini-actions{display:flex;gap:8px;margin-top:6px}
+.mini-actions button{flex:1}
+/* outs */
+.outs-board{display:flex;flex-direction:column;align-items:center;gap:8px;margin:2px 0 6px}
+.who{font-size:12.5px;color:var(--muted);text-align:center}
+.who b{color:var(--text)}
+.boardrow{display:flex;gap:6px;justify-content:center;padding:10px 12px;border-radius:14px;background:radial-gradient(ellipse at 50% 40%,var(--felt1),var(--felt2) 80%)}
+.stepper{display:flex;align-items:center;gap:8px}
+.stepper button{width:48px;height:48px;border-radius:12px;background:var(--surface2);font-size:24px;font-weight:700}
+.stepper button:active{background:var(--line)}
+.stepper input{width:76px;height:48px;border-radius:12px;border:1px solid var(--line);background:var(--bg);color:var(--text);font-size:22px;font-weight:700;text-align:center;font-variant-numeric:tabular-nums}
+.inrow{display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:10px 12px;margin-bottom:8px}
+.inrow .lb{font-weight:650}
+.inrow .lb small{display:block;color:var(--muted);font-weight:500;font-size:12px}
+.outlist{display:flex;flex-wrap:wrap;gap:4px;margin-top:8px}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;margin-top:10px;font-size:14px}
+.kv dt{color:var(--muted)} .kv dd{margin:0;font-variant-numeric:tabular-nums}
+/* errors */
+.err{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:10px 12px;margin-bottom:8px;display:flex;gap:10px;align-items:center}
+.err .info{flex:1;min-width:0;font-size:13.5px}
+.err .info .t{font-weight:650}
+.err .info .m{color:var(--muted);font-size:12.5px}
+.badge{font-size:10.5px;font-weight:750;padding:1px 6px;border-radius:5px;background:var(--surface2);color:var(--muted);text-transform:uppercase;letter-spacing:.5px}
+.empty{text-align:center;color:var(--muted);padding:40px 10px}
+/* sheet */
+.sheet-bg{position:fixed;inset:0;background:#000a;display:none;z-index:20}
+.sheet{position:fixed;left:0;right:0;bottom:0;max-height:88%;overflow-y:auto;background:var(--surface);border-radius:18px 18px 0 0;padding:8px 16px calc(18px + var(--safe-b));z-index:21;max-width:560px;margin:0 auto;display:none}
+.sheet.open,.sheet-bg.open{display:block}
+.sheet .grab{width:40px;height:5px;border-radius:9px;background:var(--line);margin:4px auto 6px}
+.sheet h2{font-size:17px;margin:6px 0 2px}
+.sheet p{color:#cfdcd6;font-size:14px}
+.sheet table{border-collapse:collapse;width:100%;font-size:13px;margin:8px 0}
+.sheet td,.sheet th{border-bottom:1px solid var(--line);padding:5px 4px;text-align:left;vertical-align:top}
+.sheet th{color:var(--muted);font-weight:600}
+.cellinfo{min-height:20px;font-size:13.5px;margin-top:8px;color:#d6e4de}
+.note{font-size:12.5px;color:var(--muted);margin-top:10px}
+.toast{position:fixed;left:50%;top:calc(64px + var(--safe-t));transform:translateX(-50%);background:var(--surface2);border:1px solid var(--line);padding:8px 14px;border-radius:999px;font-size:13.5px;display:none;z-index:30;white-space:nowrap;max-width:calc(100% - 32px);overflow:hidden;text-overflow:ellipsis;box-shadow:0 4px 14px #0008}
+@media (min-width:380px) and (min-height:700px){.card{width:84px;height:118px}.card .r{font-size:34px}.card .s{font-size:44px}.card.sm{width:48px;height:68px}.card.xs{width:30px;height:42px}}
+@media (min-height:760px){.table-wrap{aspect-ratio:1.45/1;margin-top:10px}.spotline{margin:8px 0 14px}.card{width:96px;height:134px}.card .r{font-size:38px}.card .s{font-size:50px}.card.sm{width:50px;height:70px}.card.sm .r{font-size:21px}.card.sm .s{font-size:24px}.card.xs{width:30px;height:42px}.card.xs .r{font-size:14px}.card.xs .s{font-size:15px}}
+@media (max-height:700px){.table-wrap{aspect-ratio:1.8/1}.seat{min-width:40px;padding:2px 4px}.seat .p{font-size:10px}.seat .st{font-size:9.5px}.seat .tag{font-size:9px}.dealer{width:14px;height:14px;font-size:8.5px}.chip{font-size:9px}
+  .card{width:64px;height:90px}.card .r{font-size:26px}.card .s{font-size:32px}.hero-cards .card{width:52px;height:73px}.hero-cards .card .r{font-size:22px}.hero-cards .card .s{font-size:26px}.outs-board{gap:3px;margin:0}.boardrow{padding:6px 10px}.who{font-size:12px}.inrow{padding:5px 10px;margin-bottom:6px}.inrow .lb small{display:none}.stepper button,.stepper input{height:40px}.stepper button{width:44px}}
+</style>
+</head>
+<body>
+<div id="app">
+  <header class="top">
+    <h1 id="title">Push / Fold</h1>
+    <div class="score" id="score"></div>
+    <button class="icon-btn" id="btnSettings" aria-label="Ajustes do treino">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h10M18 6h2M4 12h4M12 12h8M4 18h12M20 18h0"/><circle cx="16" cy="6" r="2"/><circle cx="10" cy="12" r="2"/><circle cx="18" cy="18" r="2"/></svg>
+    </button>
+  </header>
+  <main id="main"></main>
+  <nav class="tabbar" id="tabbar">
+    <button data-tab="push"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>Push/Fold</button>
+    <button data-tab="call"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M12 8v8M8 12h8"/></svg>Call</button>
+    <button data-tab="outs"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="7" height="12" rx="1.5"/><rect x="13" y="7" width="7" height="12" rx="1.5"/></svg>Outs</button>
+    <button data-tab="errors"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6h12M8 12h12M8 18h12"/><path d="M3.5 6h.01M3.5 12h.01M3.5 18h.01"/></svg>Erros</button>
+    <button data-tab="charts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M4 10h16M10 4v16"/></svg>Tabelas</button>
+  </nav>
+</div>
+<div class="sheet-bg" id="sheetBg"></div>
+<div class="sheet" id="sheet" role="dialog" aria-modal="true"><div class="grab"></div><div id="sheetBody"></div></div>
+<div class="toast" id="toast"></div>
+<script src="ranges.js"></script>
+<script>
+'use strict';
+const D = window.PF_DATA;
+const POS = D.meta.positions;               // ordem de ação: UTG ... SB, BB
+const STACKS = D.meta.stacks;
+const N = POS.length, ISB = N - 2, IBB = N - 1;
+const GR = 'AKQJT98765432', RK = '23456789TJQKA';
+const SUIT = ['♣', '♦', '♥', '♠'], SCLS = ['c', 'd', 'h', 's'];
+const HAND = [], NCOMBO = [];
+for (let i = 0; i < 169; i++) {
+  const r = Math.floor(i / 13), c = i % 13;
+  HAND.push(r === c ? GR[r] + GR[r] : r < c ? GR[r] + GR[c] + 's' : GR[c] + GR[r] + 'o');
+  NCOMBO.push(r === c ? 6 : r < c ? 4 : 12);
+}
+const POS_NAME = {UTG: 'UTG', 'UTG+1': 'UTG+1', 'UTG+2': 'UTG+2', LJ: 'Lojack', HJ: 'Hijack', CO: 'Cutoff', BTN: 'Botão', SB: 'Small blind', BB: 'Big blind'};
+const ANTE = D.meta.ante_type === 'bb' ? D.meta.ante : 0;
+
+/* ---------- storage ---------- */
+const KEY = 'treino-mtt-v1';
+function zero() { return {n: 0, ok: 0, streak: 0, best: 0}; }
+function defaults() {
+  return {
+    tab: 'push',
+    settings: {
+      push: {positions: POS.slice(0, IBB), stacks: STACKS.slice(), focus: true},
+      call: {pushers: POS.slice(0, IBB), callers: POS.slice(1), stacks: STACKS.slice(), focus: true},
+      outs: {flop: true, turn: true},
+    },
+    score: {push: zero(), call: zero(), outs: zero()},
+    errors: [],
+    chart: {kind: 'push', stack: 10, pos: 'UTG', pusher: 'UTG', caller: 'BB'},
+  };
+}
+function loadState() {
+  const d = defaults();
+  try {
+    const s = JSON.parse(localStorage.getItem(KEY));
+    if (!s) return d;
+    for (const k of ['push', 'call', 'outs']) {
+      d.settings[k] = Object.assign(d.settings[k], s.settings && s.settings[k]);
+      d.score[k] = Object.assign(d.score[k], s.score && s.score[k]);
+    }
+    // descarta valores salvos que não existem nos dados atuais (ex.: ranges.js regerado)
+    const keep = (arr, ok, def) => { const v = Array.isArray(arr) ? arr.filter(ok) : []; return v.length ? v : def; };
+    const pushPos = POS.slice(0, IBB), callPos = POS.slice(1);
+    const sp = d.settings.push, sc = d.settings.call, df = defaults().settings;
+    sp.positions = keep(sp.positions, x => pushPos.includes(x), df.push.positions);
+    sp.stacks = keep(sp.stacks, x => STACKS.includes(x), df.push.stacks);
+    sc.pushers = keep(sc.pushers, x => pushPos.includes(x), df.call.pushers);
+    sc.callers = keep(sc.callers, x => callPos.includes(x), df.call.callers);
+    sc.stacks = keep(sc.stacks, x => STACKS.includes(x), df.call.stacks);
+    d.errors = Array.isArray(s.errors) ? s.errors : [];
+    d.chart = Object.assign(d.chart, s.chart);
+    if (['push', 'call', 'outs', 'errors', 'charts'].includes(s.tab)) d.tab = s.tab;
+  } catch (e) { /* storage indisponível */ }
+  return d;
+}
+const state = loadState();
+function persist() { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) { /* ignore */ } }
+
+/* ---------- helpers ---------- */
+const $ = s => document.querySelector(s);
+const rnd = n => Math.floor(Math.random() * n);
+const pick = a => a[rnd(a.length)];
+function weightedPick(items, w) {
+  let tot = 0; for (const it of items) tot += w(it);
+  let x = Math.random() * tot;
+  for (const it of items) { x -= w(it); if (x < 0) return it; }
+  return items[items.length - 1];
+}
+function fmt(x, d = 1) { return Number(x).toLocaleString('pt-BR', {minimumFractionDigits: d, maximumFractionDigits: d}); }
+function bb(x) { return fmt(x, Number.isInteger(x) ? 0 : 1) + 'bb'; }
+function evTxt(x) { const s = x > 0 ? '+' : x < 0 ? '−' : '±'; return `<span class="ev ${x > 0 ? 'pos' : x < 0 ? 'neg' : ''}">${s}${fmt(Math.abs(x), 2)}bb</span>`; }
+function esc(s) { return String(s).replace(/[&<>"]/g, c => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;'}[c])); }
+function toast(msg) { const t = $('#toast'); t.textContent = msg; t.style.display = 'block'; clearTimeout(toast.h); toast.h = setTimeout(() => t.style.display = 'none', 1800); }
+
+function cardHTML(c, size = '') {
+  const r = c >> 2, s = c & 3;
+  return `<div class="card ${size}" aria-label="${RK[r]}${SUIT[s]}"><span class="r c-${SCLS[s]}">${RK[r] === 'T' ? '10' : RK[r]}</span><span class="s c-${SCLS[s]}">${SUIT[s]}</span></div>`;
+}
+function cardTxt(c) { return `<span class="t-${SCLS[c & 3]}" style="font-weight:700">${RK[c >> 2]}${SUIT[c & 3]}</span>`; }
+function comboFor(i) {
+  const r = Math.floor(i / 13), c = i % 13;
+  const ra = 12 - Math.min(r, c), rb = 12 - Math.max(r, c);
+  if (r === c) { const s1 = rnd(4); let s2 = rnd(3); if (s2 >= s1) s2++; return [ra * 4 + s1, ra * 4 + s2]; }
+  if (r < c) { const s = rnd(4); return [ra * 4 + s, rb * 4 + s]; }
+  const s1 = rnd(4); let s2 = rnd(3); if (s2 >= s1) s2++;
+  return [ra * 4 + s1, rb * 4 + s2];
+}
+
+/* ---------- ranges ---------- */
+function spotPush(stack, pos) { return D.push[stack][pos]; }
+function spotCall(stack, pusher, caller) { return D.call[stack][pusher][caller]; }
+function freq(spot, i) { const m = spot.mix[i]; return m !== undefined ? m / 100 : (spot.dev[i] > 0 ? 1 : 0); }
+function rangePct(spot) { let t = 0; for (let i = 0; i < 169; i++) t += freq(spot, i) * NCOMBO[i]; return t / 1326 * 100; }
+function sampleClass(spot, focus) {
+  const all = [...Array(169).keys()];
+  if (focus && Math.random() < 0.55) {
+    const hard = all.slice().sort((a, b) => Math.abs(spot.dev[a]) - Math.abs(spot.dev[b])).slice(0, 30);
+    return weightedPick(hard, i => NCOMBO[i]);
+  }
+  return weightedPick(all, i => NCOMBO[i]);
+}
+function judge(spot, i, act) {
+  // mista: o equilíbrio joga a mão só parte das vezes; indiferente: |EV(ação) − EV(fold)| < 0,005bb
+  const f = freq(spot, i), mixed = f > 0.02 && f < 0.98, best = f >= 0.5 ? 'play' : 'fold';
+  const indiff = !mixed && spot.dev[i] === 0;
+  return {ok: mixed || indiff || act === best, mixed, indiff, best, f, dev: spot.dev[i] / 100};
+}
+function potInfo(pusher, caller, S) {
+  const live = i => S - (i === IBB ? ANTE : 0);
+  const blind = i => i === ISB ? D.meta.sb : i === IBB ? D.meta.bb : 0;
+  const j = POS.indexOf(pusher), k = POS.indexOf(caller);
+  const potNow = live(j) + [ISB, IBB].filter(i => i !== j).reduce((a, i) => a + blind(i), 0) + ANTE;
+  const m = Math.min(live(j), live(k));
+  const toCall = m - blind(k);
+  const dead = ANTE + [ISB, IBB].filter(i => i !== j && i !== k).reduce((a, i) => a + blind(i), 0);
+  const potAfter = 2 * m + dead;
+  return {potNow, toCall, potAfter, need: toCall / potAfter, back: live(j) - m};
+}
+
+/* ---------- mesa ---------- */
+function tableHTML(q) {
+  const hero = POS.indexOf(q.pos);
+  const pj = q.kind === 'call' ? POS.indexOf(q.pusher) : -1;
+  const cx = 50, cy = 46, rx = 41, ry = 37;
+  let html = '<div class="table-wrap"><div class="felt"></div>';
+  const potTxt = q.kind === 'call' ? `Pote ${bb(potInfo(q.pusher, q.pos, q.stack).potNow)}` : `Pote ${bb(D.meta.sb + D.meta.bb + ANTE)}`;
+  html += `<div class="pot">${potTxt}</div>`;
+  for (let i = 0; i < N; i++) {
+    const th = (90 + (i - hero) * (360 / N)) * Math.PI / 180;
+    const x = cx + rx * Math.cos(th), y = cy + ry * Math.sin(th);
+    let cls = 'seat', st = bb(q.stack), extra = '';
+    const acted = i < hero && i !== pj;
+    if (i === hero) cls += ' hero';
+    else if (acted) cls += ' folded';
+    if (i === pj) { cls += ' shover'; extra = `<span class="tag">ALL-IN</span>`; st = bb(q.stack - (i === IBB ? ANTE : 0)); }
+    else if (i === ISB) st = bb(q.stack - D.meta.sb);
+    else if (i === IBB) st = bb(q.stack - D.meta.bb - ANTE);
+    html += `<div class="${cls}" style="left:${x}%;top:${y}%"><div class="p">${POS[i]}</div><div class="st">${acted ? 'fold' : st}</div>${extra}</div>`;
+    const tx = cx + rx * 0.58 * Math.cos(th), ty = cy + ry * 0.55 * Math.sin(th);
+    if (i === ISB && i !== pj) html += `<div class="chip" style="left:${tx}%;top:${ty}%">${fmt(D.meta.sb, 1)}</div>`;
+    if (i === IBB && i !== pj) html += `<div class="chip" style="left:${tx}%;top:${ty}%">${ANTE ? `1 + ${fmt(ANTE, 0)} ante` : '1'}</div>`;
+    if (POS[i] === 'BTN') {
+      const bx = cx + rx * 0.70 * Math.cos(th + 0.24), by = cy + ry * 0.64 * Math.sin(th + 0.24);
+      html += `<div class="dealer" style="left:${bx}%;top:${by}%">D</div>`;
+    }
+  }
+  return html + '</div>';
+}
+
+/* ---------- grade de range ---------- */
+function gridHTML(spot, color, heroIdx) {
+  let h = '<div class="grid" role="img" aria-label="Tabela de range">';
+  for (let i = 0; i < 169; i++) {
+    const f = freq(spot, i);
+    let style = '';
+    if (f >= 0.995) style = `background:${color}`;
+    else if (f > 0.005) style = `background:linear-gradient(to top,${color} ${Math.round(f * 100)}%,#1d2c27 ${Math.round(f * 100)}%)`;
+    h += `<div class="cell${f > 0.005 ? ' on' : ''}${i === heroIdx ? ' hero' : ''}" data-i="${i}" style="${style}">${HAND[i]}</div>`;
+  }
+  return h + '</div>';
+}
+function legendHTML(color, label) {
+  return `<div class="legend"><span><i style="background:${color}"></i>${label}</span><span><i style="background:linear-gradient(to top,${color} 50%,#1d2c27 50%)"></i>misto (frequência)</span><span><i style="background:#1d2c27"></i>fold</span></div>`;
+}
+
+/* ---------- placar e erros ---------- */
+function bump(mode, ok) {
+  const s = state.score[mode];
+  s.n++; if (ok) { s.ok++; s.streak++; s.best = Math.max(s.best, s.streak); } else s.streak = 0;
+  persist();
+  renderScore();
+}
+function addError(e) {
+  e.t = Date.now();
+  state.errors.unshift(e);
+  if (state.errors.length > 400) state.errors.length = 400;
+  persist();
+}
+function renderScore() {
+  const m = state.tab;
+  const el = $('#score');
+  if (!['push', 'call', 'outs'].includes(m)) { el.innerHTML = ''; return; }
+  const s = state.score[m];
+  const p = s.n ? Math.round(100 * s.ok / s.n) : 0;
+  el.innerHTML = `<b>${s.ok}/${s.n}</b> · ${p}%<br>seq. ${s.streak} · rec. ${s.best}`;
+}
+
+/* ---------- PUSH / CALL ---------- */
+const cur = {push: null, call: null, outs: null};
+function genPush() {
+  const st = state.settings.push;
+  const pos = pick(st.positions), stack = pick(st.stacks);
+  const cls = sampleClass(spotPush(stack, pos), st.focus);
+  return {kind: 'push', pos, stack, cls, cards: comboFor(cls), answer: null};
+}
+function callPairs() {
+  const st = state.settings.call, out = [];
+  for (const p of st.pushers) for (const c of st.callers) if (POS.indexOf(c) > POS.indexOf(p)) out.push([p, c]);
+  return out;
+}
+function genCall() {
+  const st = state.settings.call;
+  const pairs = callPairs();
+  if (!pairs.length) return null;
+  const [p, c] = pick(pairs), stack = pick(st.stacks);
+  const cls = sampleClass(spotCall(stack, p, c), st.focus);
+  return {kind: 'call', pusher: p, pos: c, stack, cls, cards: comboFor(cls), answer: null};
+}
+function spotOf(q) { return q.kind === 'push' ? spotPush(q.stack, q.pos) : spotCall(q.stack, q.pusher, q.pos); }
+
+function renderPF(kind) {
+  if (!cur[kind]) cur[kind] = kind === 'push' ? genPush() : genCall();
+  const q = cur[kind];
+  const main = $('#main');
+  if (!q) { main.innerHTML = '<div class="empty">Nenhuma combinação válida nos ajustes. Abra os ajustes e escolha posições.</div>'; return; }
+  const playLbl = kind === 'push' ? 'PUSH' : 'CALL';
+  let h = tableHTML(q);
+  if (kind === 'push') {
+    h += `<div class="spotline">Você: <b>${POS_NAME[q.pos]}</b> · <b>${q.stack}bb</b> · foldaram até você</div>`;
+  } else {
+    const pi = potInfo(q.pusher, q.pos, q.stack);
+    h += `<div class="spotline"><b>${q.pusher}</b> deu all-in de <b>${bb(q.stack - (POS.indexOf(q.pusher) === IBB ? ANTE : 0))}</b>, foldaram até você no <b>${q.pos}</b><br>Pagar <b>${bb(pi.toCall)}</b> para um pote de <b>${bb(pi.potAfter)}</b> → precisa de ${fmt(pi.need * 100, 0)}% de equity (sem overcall)</div>`;
+  }
+  h += `<div class="cards">${cardHTML(q.cards[0])}${cardHTML(q.cards[1])}</div>`;
+  if (!q.answer) {
+    h += `<div class="actions"><button class="btn fold" data-act="fold">FOLD <span class="kbd">F</span></button><button class="btn ${kind}" data-act="play">${playLbl} <span class="kbd">${kind === 'push' ? 'P' : 'C'}</span></button></div>`;
+  } else {
+    h += feedbackPF(q);
+  }
+  main.innerHTML = `<div class="drill">${h}</div>`;
+  main.querySelectorAll('[data-act]').forEach(b => b.onclick = () => answerPF(kind, b.dataset.act));
+  const nx = main.querySelector('[data-next]');
+  if (nx) nx.onclick = () => nextQ(kind);
+  bindGridInfo(main, q.kind === 'push' ? 'push' : 'call', spotOf(q));
+}
+function answerPF(kind, act) {
+  const q = cur[kind];
+  if (!q || q.answer) return;
+  const j = judge(spotOf(q), q.cls, act);
+  q.answer = act; q.judge = j;
+  bump(kind, j.ok);
+  if (!j.ok) addError({mode: kind, pos: q.pos, pusher: q.pusher || null, stack: q.stack, cls: q.cls, cards: q.cards, ans: act, best: j.best, dev: j.dev, f: j.f});
+  renderPF(kind);
+  $('#main').scrollTop = 0;
+}
+function feedbackPF(q) {
+  const j = q.judge, spot = spotOf(q), play = q.kind === 'push' ? 'PUSH' : 'CALL', pk = q.kind;
+  const lbl = a => a === 'play' ? `<span class="pill ${pk}">${play}</span>` : `<span class="pill fold">FOLD</span>`;
+  const color = q.kind === 'push' ? 'var(--push)' : 'var(--call)';
+  let h = `<div class="fb ${j.ok ? 'ok' : 'bad'}"><div class="head"><span class="ico">${j.ok ? '✓' : '✕'}</span>${j.ok ? 'Certo' : 'Errado'}</div>`;
+  if (j.mixed) {
+    h += `<p><b>${HAND[q.cls]}</b> é mão <span class="pill mix">mista</span> neste spot: ${play.toLowerCase()} ${fmt(j.f * 100, 0)}% das vezes no equilíbrio. As duas respostas valem.</p>`;
+  } else if (j.indiff) {
+    h += `<p><b>${HAND[q.cls]}</b> é praticamente <span class="pill mix">indiferente</span> aqui (diferença de EV menor que 0,01bb). O equilíbrio prefere ${lbl(j.best)}, mas as duas respostas valem.</p>`;
+  } else {
+    h += `<p>Resposta certa: ${lbl(j.best)} com <b>${HAND[q.cls]}</b>. Você: ${lbl(q.answer)}.</p>`;
+  }
+  h += `<p>${play} vs fold: ${evTxt(j.dev)} <span class="muted">(EV em chips, contra os ranges Nash)</span></p>`;
+  if (!j.ok) h += `<p class="muted">Seu erro custa ${fmt(Math.abs(j.dev), 2)}bb por vez nesse spot.</p>`;
+  const who = q.kind === 'push' ? `Push de ${q.pos} com ${q.stack}bb` : `Call do ${q.pos} vs all-in de ${q.pusher} (${q.stack}bb)`;
+  h += `<p class="muted" style="margin-top:12px">${who}: <b style="color:var(--text)">${fmt(rangePct(spot), 1)}%</b> das mãos</p>`;
+  h += gridHTML(spot, color, q.cls) + legendHTML(color, play.toLowerCase());
+  h += `<div class="cellinfo" data-cellinfo>Toque numa mão da tabela para ver o EV.</div></div>`;
+  h += `<div class="sticky-next"><button class="btn next" data-next>Próxima <span class="kbd">↵</span></button></div>`;
+  return h;
+}
+function bindGridInfo(root, kind, spot) {
+  const info = root.querySelector('[data-cellinfo]');
+  if (!info) return;
+  root.querySelectorAll('.cell').forEach(c => c.onclick = () => {
+    const i = +c.dataset.i, f = freq(spot, i), play = kind === 'push' ? 'Push' : 'Call';
+    info.innerHTML = `<b>${HAND[i]}</b>: ${play.toLowerCase()} ${fmt(f * 100, 0)}% · ${play} vs fold ${evTxt(spot.dev[i] / 100)}`;
+  });
+}
+function nextQ(kind) {
+  cur[kind] = kind === 'push' ? genPush() : kind === 'call' ? genCall() : genOuts();
+  render();
+  $('#main').scrollTop = 0;
+}
+
+/* ---------- avaliador de mãos (5 a 7 cartas) ---------- */
+function straightHigh(mask) {
+  for (let h = 12; h >= 4; h--) if (((mask >> (h - 4)) & 31) === 31) return h;
+  if ((mask & 0x100F) === 0x100F) return 3;  // A-2-3-4-5
+  return -1;
+}
+const B13 = [371293, 28561, 2197, 169, 13, 1];
+function score(cat, ks) { let s = cat * B13[0]; for (let i = 0; i < ks.length; i++) s += ks[i] * B13[i + 1]; return s; }
+function evalHand(cards) {
+  const rc = new Array(13).fill(0), sc = [0, 0, 0, 0], sm = [0, 0, 0, 0];
+  let rm = 0;
+  for (const c of cards) { const r = c >> 2, s = c & 3; rc[r]++; sc[s]++; sm[s] |= 1 << r; rm |= 1 << r; }
+  let fs = -1;
+  for (let s = 0; s < 4; s++) if (sc[s] >= 5) fs = s;
+  if (fs >= 0) {
+    const sf = straightHigh(sm[fs]);
+    if (sf >= 0) return score(8, [sf]);
+  }
+  const quads = [], trips = [], pairs = [], singles = [];
+  for (let r = 12; r >= 0; r--) {
+    if (rc[r] === 4) quads.push(r); else if (rc[r] === 3) trips.push(r); else if (rc[r] === 2) pairs.push(r); else if (rc[r] === 1) singles.push(r);
+  }
+  if (quads.length) {
+    let k = -1; for (let r = 12; r >= 0; r--) if (rc[r] > 0 && r !== quads[0]) { k = r; break; }
+    return score(7, [quads[0], k]);
+  }
+  if (trips.length && (trips.length > 1 || pairs.length)) {
+    const p = Math.max(trips.length > 1 ? trips[1] : -1, pairs.length ? pairs[0] : -1);
+    return score(6, [trips[0], p]);
+  }
+  if (fs >= 0) {
+    const ks = []; for (let r = 12; r >= 0 && ks.length < 5; r--) if (sm[fs] >> r & 1) ks.push(r);
+    return score(5, ks);
+  }
+  const st = straightHigh(rm);
+  if (st >= 0) return score(4, [st]);
+  const desc = []; for (let r = 12; r >= 0; r--) if (rc[r]) desc.push(r);
+  if (trips.length) return score(3, [trips[0], ...desc.filter(r => r !== trips[0]).slice(0, 2)]);
+  if (pairs.length >= 2) return score(2, [pairs[0], pairs[1], desc.filter(r => r !== pairs[0] && r !== pairs[1])[0]]);
+  if (pairs.length) return score(1, [pairs[0], ...desc.filter(r => r !== pairs[0]).slice(0, 3)]);
+  return score(0, desc.slice(0, 5));
+}
+const CAT = ['carta alta', 'um par', 'dois pares', 'trinca', 'sequência', 'flush', 'full house', 'quadra', 'straight flush'];
+function catOf(s) { return Math.floor(s / B13[0]); }
+
+/* ---------- OUTS ---------- */
+function deck() { const d = [...Array(52).keys()]; for (let i = 51; i > 0; i--) { const j = rnd(i + 1); [d[i], d[j]] = [d[j], d[i]]; } return d; }
+function analyzeOuts(hero, vil, board, rest) {
+  const outs = [], ties = [];
+  for (const c of rest) {
+    const h = evalHand([...hero, ...board, c]), v = evalHand([...vil, ...board, c]);
+    if (h > v) outs.push(c); else if (h === v) ties.push(c);
+  }
+  return {outs, ties};
+}
+function equityExact(hero, vil, board, rest) {
+  let w = 0, t = 0, n = 0;
+  if (board.length === 4) {
+    for (const c of rest) { const h = evalHand([...hero, ...board, c]), v = evalHand([...vil, ...board, c]); n++; if (h > v) w++; else if (h === v) t++; }
+  } else {
+    for (let a = 0; a < rest.length; a++) for (let b = a + 1; b < rest.length; b++) {
+      const h = evalHand([...hero, ...board, rest[a], rest[b]]), v = evalHand([...vil, ...board, rest[a], rest[b]]);
+      n++; if (h > v) w++; else if (h === v) t++;
+    }
+  }
+  return (w + t / 2) / n;
+}
+function probHit(o, unseen, cardsToCome) {
+  if (cardsToCome === 1) return o / unseen;
+  return 1 - ((unseen - o) * (unseen - o - 1)) / (unseen * (unseen - 1));
+}
+function genOuts() {
+  const st = state.settings.outs;
+  const streets = []; if (st.flop) streets.push(3); if (st.turn) streets.push(4);
+  if (!streets.length) streets.push(3);
+  let fallback = null;
+  const nb = pick(streets);                      // rua sorteada antes: flop e turn saem meio a meio
+  for (let tries = 0; tries < 6000; tries++) {
+    const d = deck();
+    const hero = d.slice(0, 2), vil = d.slice(2, 4), board = d.slice(4, 4 + nb), rest = d.slice(4 + nb);
+    const hs = evalHand([...hero, ...board]), vs = evalHand([...vil, ...board]);
+    if (hs >= vs) continue;                      // você precisa estar atrás
+    const {outs, ties} = analyzeOuts(hero, vil, board, rest);
+    const o = outs.length;
+    if (o < 1 || o > 22) continue;
+    if (!fallback) fallback = {hero, vil, board, rest, outs, ties};
+    if (ties.length >= 8 || ties.length > o) continue;   // só kicker: quase tudo empata
+    const draw = outs.some(c => { const k = catOf(evalHand([...hero, ...board, c])); return k === 4 || k === 5 || k === 8; });
+    let w = o <= 2 ? 0.2 : o <= 3 ? 0.35 : o <= 16 ? 1 : 0.6;
+    if (!draw) w *= 0.45;
+    if (catOf(hs) === 0 && catOf(vs) === 0) w *= 0.35;   // carta alta contra carta alta
+    if (o === 6 && !draw) w *= 0.5;                      // "parear uma das minhas cartas" demais
+    if (Math.random() > w) continue;
+    return mkOutsQ(hero, vil, board, rest, outs, ties);
+  }
+  const f = fallback;
+  return mkOutsQ(f.hero, f.vil, f.board, f.rest, f.outs, f.ties);
+}
+function mkOutsQ(hero, vil, board, rest, outs, ties) {
+  hero.sort((a, b) => b - a); vil.sort((a, b) => b - a);
+  const toCome = board.length === 3 ? 2 : 1, unseen = rest.length;
+  return {kind: 'outs', hero, vil, board, outs: outs.sort((a, b) => b - a), ties, unseen, toCome,
+    exact: probHit(outs.length, unseen, toCome) * 100,
+    table: probHit(outs.length, unseen + 2, toCome) * 100,
+    rule: outs.length * (toCome === 2 ? 4 : 2),
+    equity: equityExact(hero, vil, board, rest) * 100,
+    heroNow: catOf(evalHand([...hero, ...board])), vilNow: catOf(evalHand([...vil, ...board])),
+    ansOuts: 0, ansPct: '', answered: false};
+}
+function renderOuts() {
+  if (!cur.outs) cur.outs = genOuts();
+  const q = cur.outs, main = $('#main');
+  const street = q.board.length === 3 ? 'Flop · 2 cartas por vir (turn e river)' : 'Turn · 1 carta por vir (river)';
+  let h = `<div class="outs-board">
+    <div class="who">Vilão · <b>${CAT[q.vilNow]}</b></div>
+    <div class="cards">${q.vil.map(c => cardHTML(c, 'sm')).join('')}</div>
+    <div class="boardrow">${q.board.map(c => cardHTML(c, 'sm')).join('')}</div>
+    <div class="who">${street}</div>
+    <div class="cards hero-cards">${q.hero.map(c => cardHTML(c, q.answered ? 'sm' : '')).join('')}</div>
+    <div class="who">Você · <b>${CAT[q.heroNow]}</b> · atrás na mão</div>
+  </div>`;
+  if (!q.answered) {
+    h += `<div class="inrow"><div class="lb">Outs<small>cartas que te colocam na frente</small></div>
+      <div class="stepper"><button data-o="-1" aria-label="menos um out">−</button><input id="inOuts" inputmode="numeric" type="number" min="0" max="45" value="${q.ansOuts}" aria-label="número de outs"><button data-o="1" aria-label="mais um out">+</button></div></div>
+      <div class="inrow"><div class="lb">Chance %<small>${q.toCome === 2 ? 'até o river (regra do 4)' : 'no river (regra do 2)'}</small></div>
+      <div class="stepper"><button data-p="-1" aria-label="menos um por cento">−</button><input id="inPct" inputmode="decimal" type="number" min="0" max="100" step="1" placeholder="%" value="${esc(q.ansPct)}" aria-label="porcentagem"><button data-p="1" aria-label="mais um por cento">+</button></div></div>
+      <div class="actions"><button class="btn next" data-check>Conferir <span class="kbd">↵</span></button></div>`;
+  } else {
+    h += feedbackOuts(q);
+  }
+  main.innerHTML = `<div class="drill">${h}</div>`;
+  if (!q.answered) {
+    const io = $('#inOuts'), ip = $('#inPct');
+    main.querySelectorAll('[data-o]').forEach(b => b.onclick = () => { io.value = Math.max(0, Math.min(45, (+io.value || 0) + +b.dataset.o)); q.ansOuts = +io.value; });
+    main.querySelectorAll('[data-p]').forEach(b => b.onclick = () => {
+      const base = ip.value === '' ? ((+io.value || 0) * (q.toCome === 2 ? 4 : 2)) : +ip.value;
+      ip.value = Math.max(0, Math.min(100, Math.round(base + (ip.value === '' ? 0 : +b.dataset.p))));
+      q.ansPct = ip.value;
+    });
+    io.oninput = () => q.ansOuts = +io.value || 0;
+    ip.oninput = () => q.ansPct = ip.value;
+    main.querySelector('[data-check]').onclick = checkOuts;
+  } else {
+    main.querySelector('[data-next]').onclick = () => nextQ('outs');
+  }
+}
+function checkOuts() {
+  const q = cur.outs;
+  if (!q || q.answered) return;
+  const ip = $('#inPct'), io = $('#inOuts');
+  q.ansOuts = Math.round(+io.value || 0);
+  if (ip.value === '' || isNaN(+ip.value.replace(',', '.'))) { toast('Digite a chance em %'); ip.focus(); return; }
+  q.ansPct = +String(ip.value).replace(',', '.');
+  const o = q.outs.length;
+  q.okOuts = q.ansOuts === o;
+  // uma faixa contínua: da menor à maior das estimativas válidas (exata, tabela 47/46, regra do 2/4 e a
+  // regra do 4 corrigida 4x − (x − 8)), com folga proporcional
+  const k = q.toCome === 2 ? 4 : 2;
+  const cands = [q.exact, q.table, q.rule];
+  if (q.toCome === 2 && o > 8) cands.push(3 * o + 8);
+  const tol = Math.max(1.5, Math.min(3, q.exact * 0.15));
+  q.okPct = q.ansPct >= Math.min(...cands) - tol && q.ansPct <= Math.max(...cands) + tol;
+  q.pctOwn = !q.okOuts && Math.abs(q.ansPct - q.ansOuts * k) <= 1;  // conta certa para os outs que você contou
+  q.answered = true;
+  const ok = q.okOuts && q.okPct;
+  bump('outs', ok);
+  if (!ok) addError({mode: 'outs', hero: q.hero, vil: q.vil, board: q.board, outs: o, ansOuts: q.ansOuts, ansPct: q.ansPct, exact: q.exact, rule: q.rule});
+  renderOuts();
+  $('#main').scrollTop = 0;
+}
+function feedbackOuts(q) {
+  const o = q.outs.length, ok = q.okOuts && q.okPct, k = q.toCome === 2 ? 4 : 2;
+  const head = ok ? 'Certo' : q.okOuts ? 'Outs certos, % errada' : q.okPct ? 'Outs errados' : 'Errado';
+  let h = `<div class="fb ${ok ? 'ok' : 'bad'}"><div class="head"><span class="ico">${ok ? '✓' : '✕'}</span>${head}</div>`;
+  h += `<dl class="kv">
+    <dt>Outs</dt><dd><b>${o}</b> ${q.okOuts ? '✓' : `<span class="ev neg">(você: ${q.ansOuts})</span>`}</dd>
+    <dt>Chance exata</dt><dd><b>${fmt(q.exact, 1)}%</b> ${q.okPct ? `✓ <span class="muted">(você: ${fmt(q.ansPct, 0)}%)</span>` : `<span class="ev neg">(você: ${fmt(q.ansPct, 0)}%)</span>`}</dd>
+    <dt>Regra do ${k}</dt><dd>${o} × ${k} = ${q.rule}%</dd>
+    <dt>Sem ver o vilão</dt><dd>${fmt(q.table, 1)}% <span class="muted">(${q.unseen + 2} cartas desconhecidas)</span></dd>
+    <dt>Equity real</dt><dd>${fmt(q.equity, 1)}% <span class="muted">(até o river, com runner-runner e empates)</span></dd>
+  </dl>`;
+  if (q.pctOwn) h += `<p class="muted">A sua % está certa para os ${q.ansOuts} outs que você contou; o erro foi na contagem.</p>`;
+  h += `<p class="muted" style="margin-top:10px">Outs (${o}):</p><div class="outlist">${q.outs.map(c => cardHTML(c, 'xs')).join('')}</div>`;
+  if (q.ties.length) h += `<p class="muted">Empatam (não contam): ${q.ties.map(cardTxt).join(' ')}</p>`;
+  const notes = [];
+  if (q.toCome === 2 && q.rule - q.exact > 4) notes.push(`Com muitos outs a regra do 4 exagera. Uma correção comum: 4 × outs − (outs − 8) = ${3 * o + 8}%.`);
+  if (q.exact - q.equity > 8) notes.push('Mesmo acertando um out, o vilão ainda pode melhorar na última carta (ex.: trinca vira full house), por isso a equity real é menor que a chance de acertar.');
+  if (q.equity - q.exact > 8) notes.push('Você também ganha com runner-runner ou divide o pote em várias cartas, por isso a equity real é maior que a chance de acertar um out.');
+  for (const n of notes) h += `<p class="note">${n}</p>`;
+  h += `<p class="note">Chance exata = probabilidade de sair pelo menos um out, com ${q.unseen} cartas não vistas (sua mão, a do vilão e o board são conhecidos). A % vale se estiver entre a menor e a maior estimativa razoável (exata, tabela sem ver o vilão, regra do ${k}${q.toCome === 2 && o > 8 ? ' e regra corrigida' : ''}), com uma pequena folga.</p></div>`;
+  h += `<div class="sticky-next"><button class="btn next" data-next>Próxima <span class="kbd">↵</span></button></div>`;
+  return h;
+}
+
+/* ---------- ERROS ---------- */
+function renderErrors() {
+  const main = $('#main');
+  const f = renderErrors.filter || 'all';
+  const list = state.errors.filter(e => f === 'all' || e.mode === f);
+  let h = `<div class="seg" role="group" aria-label="Filtrar erros">${[['all', 'Todos'], ['push', 'Push'], ['call', 'Call'], ['outs', 'Outs']].map(([k, l]) => `<button aria-pressed="${f === k}" data-f="${k}">${l}</button>`).join('')}</div>`;
+  h += `<p class="muted" style="color:var(--muted);font-size:13px;margin:10px 2px">${list.length} erro${list.length === 1 ? '' : 's'}${f === 'all' ? '' : ' neste modo'} · mais recentes primeiro</p>`;
+  if (!list.length) h += '<div class="empty">Nenhum erro registrado ainda.</div>';
+  for (const e of list) {
+    const when = new Date(e.t).toLocaleString('pt-BR', {day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit'});
+    if (e.mode === 'outs') {
+      h += `<div class="err"><div class="info"><div><span class="badge">outs</span> <span class="t">${e.hero.map(cardTxt).join(' ')} vs ${e.vil.map(cardTxt).join(' ')}</span></div>
+        <div class="m">Board ${e.board.map(cardTxt).join(' ')} · outs ${e.outs} (você ${e.ansOuts}) · ${fmt(e.exact, 1)}% (você ${fmt(e.ansPct, 0)}%)</div><div class="m">${when}</div></div></div>`;
+    } else {
+      const play = e.mode === 'push' ? 'PUSH' : 'CALL';
+      const spot = e.mode === 'push' ? `${e.pos} · ${e.stack}bb` : `${e.pos} vs all-in de ${e.pusher} · ${e.stack}bb`;
+      const lbl = a => a === 'play' ? play : 'FOLD';
+      h += `<div class="err" data-open='${esc(JSON.stringify({mode: e.mode, pos: e.pos, pusher: e.pusher, stack: e.stack, cls: e.cls}))}'>
+        <div style="display:flex;gap:3px">${e.cards.map(c => cardHTML(c, 'xs')).join('')}</div>
+        <div class="info"><div><span class="badge">${e.mode}</span> <span class="t">${HAND[e.cls]}</span> · ${spot}</div>
+        <div class="m">Você: ${lbl(e.ans)} · Certo: <b style="color:var(--text)">${lbl(e.best)}</b> · custou <span class="ev neg">${fmt(Math.abs(e.dev), 2)}bb</span></div><div class="m">${when}</div></div></div>`;
+    }
+  }
+  if (list.length) h += `<div class="mini-actions"><button class="btn ghost" data-clear>Apagar ${f === 'all' ? 'todos os erros' : 'erros deste modo'}</button></div>`;
+  main.innerHTML = h;
+  main.querySelectorAll('[data-f]').forEach(b => b.onclick = () => { renderErrors.filter = b.dataset.f; renderErrors(); });
+  main.querySelectorAll('[data-open]').forEach(el => el.onclick = () => {
+    const e = JSON.parse(el.dataset.open);
+    Object.assign(state.chart, e.mode === 'push' ? {kind: 'push', stack: e.stack, pos: e.pos} : {kind: 'call', stack: e.stack, pusher: e.pusher, caller: e.pos});
+    state.chart.hl = e.cls;
+    setTab('charts');
+  });
+  const cl = main.querySelector('[data-clear]');
+  if (cl) cl.onclick = () => {
+    if (cl.dataset.armed) {
+      state.errors = state.errors.filter(e => !(f === 'all' || e.mode === f)); persist(); renderErrors(); toast('Erros apagados');
+    } else { cl.dataset.armed = '1'; cl.textContent = 'Toque de novo para confirmar'; }
+  };
+}
+
+/* ---------- TABELAS ---------- */
+function renderCharts() {
+  const c = state.chart, main = $('#main');
+  if (!STACKS.includes(+c.stack)) c.stack = STACKS[0];
+  let h = `<div class="seg" role="group" aria-label="Tipo de tabela"><button aria-pressed="${c.kind === 'push'}" data-k="push">Push (abrir all-in)</button><button aria-pressed="${c.kind === 'call'}" data-k="call">Call vs all-in</button></div>`;
+  h += `<div class="label">Stack (bb)</div><div class="chips">${STACKS.map(s => `<button aria-pressed="${+c.stack === s}" data-s="${s}">${s}</button>`).join('')}</div>`;
+  let spot, title, color;
+  if (c.kind === 'push') {
+    if (POS.indexOf(c.pos) < 0 || POS.indexOf(c.pos) >= IBB) c.pos = 'UTG';
+    h += `<div class="label">Posição</div><div class="chips">${POS.slice(0, IBB).map(p => `<button aria-pressed="${c.pos === p}" data-p="${p}">${p}</button>`).join('')}</div>`;
+    spot = spotPush(c.stack, c.pos); color = 'var(--push)';
+    title = `Push de <b>${c.pos}</b> com ${c.stack}bb, foldaram até ele`;
+  } else {
+    if (POS.indexOf(c.pusher) < 0 || POS.indexOf(c.pusher) >= IBB) c.pusher = 'UTG';
+    if (POS.indexOf(c.caller) <= POS.indexOf(c.pusher)) c.caller = 'BB';
+    h += `<div class="label">All-in de</div><div class="chips">${POS.slice(0, IBB).map(p => `<button aria-pressed="${c.pusher === p}" data-u="${p}">${p}</button>`).join('')}</div>`;
+    h += `<div class="label">Você (call)</div><div class="chips">${POS.slice(POS.indexOf(c.pusher) + 1).map(p => `<button aria-pressed="${c.caller === p}" data-c="${p}">${p}</button>`).join('')}</div>`;
+    spot = spotCall(c.stack, c.pusher, c.caller); color = 'var(--call)';
+    title = `Call do <b>${c.caller}</b> vs all-in de <b>${c.pusher}</b> (${c.stack}bb)`;
+  }
+  h += `<p style="margin:16px 2px 0">${title}: <b>${fmt(rangePct(spot), 1)}%</b> das mãos</p>`;
+  h += gridHTML(spot, color, c.hl ?? -1) + legendHTML(color, c.kind === 'push' ? 'push' : 'call');
+  h += `<div class="cellinfo" data-cellinfo>Toque numa mão para ver frequência e EV.</div>`;
+  h += `<div class="mini-actions" style="margin-top:14px"><button class="btn ghost" data-about>Como os ranges foram calculados</button></div>`;
+  main.innerHTML = h;
+  main.querySelectorAll('[data-k]').forEach(b => b.onclick = () => { c.kind = b.dataset.k; c.hl = undefined; persist(); renderCharts(); });
+  main.querySelectorAll('[data-s]').forEach(b => b.onclick = () => { c.stack = +b.dataset.s; persist(); renderCharts(); });
+  main.querySelectorAll('[data-p]').forEach(b => b.onclick = () => { c.pos = b.dataset.p; c.hl = undefined; persist(); renderCharts(); });
+  main.querySelectorAll('[data-u]').forEach(b => b.onclick = () => { c.pusher = b.dataset.u; c.hl = undefined; persist(); renderCharts(); });
+  main.querySelectorAll('[data-c]').forEach(b => b.onclick = () => { c.caller = b.dataset.c; c.hl = undefined; persist(); renderCharts(); });
+  main.querySelector('[data-about]').onclick = openAbout;
+  bindGridInfo(main, c.kind, spot);
+}
+
+/* ---------- ajustes ---------- */
+function openSheet(html) { $('#sheetBody').innerHTML = html; $('#sheet').classList.add('open'); $('#sheetBg').classList.add('open'); }
+function closeSheet() { $('#sheet').classList.remove('open'); $('#sheetBg').classList.remove('open'); render(); }
+$('#sheetBg').onclick = closeSheet;
+function chipsMulti(name, opts, sel) {
+  return `<div class="chips" data-multi="${name}">${opts.map(o => `<button aria-pressed="${sel.includes(o)}" data-v="${o}">${o}</button>`).join('')}</div>`;
+}
+function openSettings() {
+  const m = state.tab;
+  let h = '';
+  if (m === 'push') {
+    const s = state.settings.push;
+    h = `<h2>Ajustes · Push/Fold</h2><div class="label">Posições</div>${chipsMulti('positions', POS.slice(0, IBB), s.positions)}
+      <div class="label">Stacks (bb)</div>${chipsMulti('stacks', STACKS, s.stacks)}
+      <div class="row"><div>Foco nas mãos difíceis<div class="note" style="margin:0">Mais mãos perto da fronteira do range</div></div><button class="toggle" role="switch" aria-checked="${s.focus}" data-focus></button></div>`;
+  } else if (m === 'call') {
+    const s = state.settings.call;
+    h = `<h2>Ajustes · Call vs all-in</h2><div class="label">Quem deu all-in</div>${chipsMulti('pushers', POS.slice(0, IBB), s.pushers)}
+      <div class="label">Sua posição</div>${chipsMulti('callers', POS.slice(1), s.callers)}
+      <div class="label">Stacks (bb)</div>${chipsMulti('stacks', STACKS, s.stacks)}
+      <div class="row"><div>Foco nas mãos difíceis<div class="note" style="margin:0">Mais mãos perto da fronteira do range</div></div><button class="toggle" role="switch" aria-checked="${s.focus}" data-focus></button></div>`;
+  } else if (m === 'outs') {
+    const s = state.settings.outs;
+    h = `<h2>Ajustes · Outs</h2>
+      <div class="row"><div>Situações no flop<div class="note" style="margin:0">2 cartas por vir · regra do 4</div></div><button class="toggle" role="switch" aria-checked="${s.flop}" data-street="flop"></button></div>
+      <div class="row"><div>Situações no turn<div class="note" style="margin:0">1 carta por vir · regra do 2</div></div><button class="toggle" role="switch" aria-checked="${s.turn}" data-street="turn"></button></div>`;
+  } else {
+    openAbout(); return;
+  }
+  h += `<div class="label">Placar</div><button class="btn ghost" style="width:100%" data-reset>Zerar placar deste modo</button>`;
+  h += `<div style="margin-top:12px"><button class="btn next" style="width:100%" data-close>Pronto</button></div>`;
+  openSheet(h);
+  const body = $('#sheetBody');
+  body.querySelectorAll('[data-multi]').forEach(g => g.querySelectorAll('button').forEach(b => b.onclick = () => {
+    const key = g.dataset.multi, arr = state.settings[m][key];
+    const v = key === 'stacks' ? +b.dataset.v : b.dataset.v;
+    const i = arr.indexOf(v);
+    if (i >= 0) { if (arr.length === 1) { toast('Deixe pelo menos uma opção'); return; } arr.splice(i, 1); } else arr.push(v);
+    b.setAttribute('aria-pressed', i < 0);
+    cur[m] = null; persist();
+  }));
+  const fo = body.querySelector('[data-focus]');
+  if (fo) fo.onclick = () => { state.settings[m].focus = !state.settings[m].focus; fo.setAttribute('aria-checked', state.settings[m].focus); persist(); };
+  body.querySelectorAll('[data-street]').forEach(t => t.onclick = () => {
+    const s = state.settings.outs, k = t.dataset.street, other = k === 'flop' ? 'turn' : 'flop';
+    if (s[k] && !s[other]) { toast('Deixe pelo menos uma rua'); return; }
+    s[k] = !s[k]; t.setAttribute('aria-checked', s[k]); cur.outs = null; persist();
+  });
+  body.querySelector('[data-reset]').onclick = e => {
+    if (!e.target.dataset.armed) { e.target.dataset.armed = '1'; e.target.textContent = 'Toque de novo para zerar'; return; }
+    state.score[m] = zero(); persist(); renderScore(); e.target.textContent = 'Placar zerado'; delete e.target.dataset.armed;
+  };
+  body.querySelector('[data-close]').onclick = closeSheet;
+}
+function openAbout() {
+  const v = D.validation;
+  let h = `<h2>Como os ranges foram calculados</h2>
+  <p>Equilíbrio de Nash push/fold em <b>chip EV</b>, calculado em Python (fictitious play até o ganho de qualquer desvio ficar abaixo de ${D.meta.max_exploitability_bb < 1e-4 ? '0,0001' : '0,001'}bb por decisão).</p>
+  <table><tr><th>Mesa</th><td>${D.meta.players} jogadores, todos com o mesmo stack (em bb, antes de postar)</td></tr>
+  <tr><th>Blinds</th><td>SB 0,5 · BB 1 · ${ANTE ? `BB ante de ${fmt(ANTE, 0)}bb (pago pelo big blind, dinheiro morto; o BB fica com stack efetivo 1bb menor)` : 'sem ante'}</td></tr>
+  <tr><th>Jogo</th><td>Foldou até você: push ou fold. Quem está atrás: call ou fold, com até ${D.meta.max_callers} callers (pote de 3 jogadores, como HRC e ICMIZER)</td></tr>
+  <tr><th>Equity</th><td>Exata por enumeração de todos os boards (heads-up); potes de 3 por Monte Carlo (80 mil amostras por trio de mãos). Remoção de cartas entre os jogadores no pote; cartas de quem foldou são ignoradas, como nas calculadoras padrão.</td></tr>
+  <tr><th>Na prática</th><td>Depois de vários folds, quem foldou tende a ter cartas baixas (“card bunching”). Uma simulação mediu que isso deixa pushes marginais de CO/BTN/SB e calls marginais dos blinds cerca de 0,2–0,3bb piores do que o mostrado.</td></tr></table>`;
+  if (v && v.items) {
+    h += `<h2 style="margin-top:14px">Conferência com tabelas públicas</h2><table><tr><th>Referência</th><th>Resultado</th></tr>${v.items.map(it => `<tr><td>${esc(it.ref)}</td><td>${esc(it.result)}</td></tr>`).join('')}</table>`;
+    if (v.note) h += `<p class="note">${esc(v.note)}</p>`;
+  }
+  h += `<p class="note">“Mista”: no equilíbrio a mão é jogada só parte das vezes; aí as duas respostas valem. EV mostrado = EV(push ou call) − EV(fold), em bb, contra os ranges de equilíbrio.</p>
+  <div style="margin-top:12px"><button class="btn next" style="width:100%" data-close>Fechar</button></div>`;
+  openSheet(h);
+  $('#sheetBody').querySelector('[data-close]').onclick = closeSheet;
+}
+
+/* ---------- navegação ---------- */
+const TITLES = {push: 'Push / Fold', call: 'Call vs all-in', outs: 'Outs', errors: 'Meus erros', charts: 'Tabelas'};
+function setTab(t) { state.tab = t; persist(); render(); $('#main').scrollTop = 0; }
+function render() {
+  const t = state.tab;
+  $('#title').textContent = TITLES[t];
+  document.querySelectorAll('#tabbar button').forEach(b => b.setAttribute('aria-current', b.dataset.tab === t ? 'page' : 'false'));
+  $('#btnSettings').style.visibility = ['push', 'call', 'outs'].includes(t) ? 'visible' : 'hidden';
+  renderScore();
+  if (t === 'push' || t === 'call') renderPF(t);
+  else if (t === 'outs') renderOuts();
+  else if (t === 'errors') renderErrors();
+  else renderCharts();
+}
+document.querySelectorAll('#tabbar button').forEach(b => b.onclick = () => {
+  if (b.dataset.tab === 'charts') state.chart.hl = undefined;
+  setTab(b.dataset.tab);
+});
+$('#btnSettings').onclick = openSettings;
+document.addEventListener('keydown', e => {
+  if ($('#sheet').classList.contains('open')) { if (e.key === 'Escape') closeSheet(); return; }
+  if (e.ctrlKey || e.metaKey || e.altKey) return;
+  const t = state.tab, k = e.key.toLowerCase();
+  if (t === 'push' || t === 'call') {
+    const q = cur[t];
+    if (!q) return;
+    if (!q.answer && k === 'f') answerPF(t, 'fold');
+    else if (!q.answer && ((t === 'push' && k === 'p') || (t === 'call' && k === 'c'))) answerPF(t, 'play');
+    else if (q.answer && (k === 'enter' || k === ' ' || k === 'n')) { e.preventDefault(); nextQ(t); }
+  } else if (t === 'outs') {
+    const q = cur.outs;
+    if (k === 'enter') { e.preventDefault(); if (q && !q.answered) checkOuts(); else nextQ('outs'); }
+  }
+});
+render();
+const DEV = /^(localhost|127\.0\.0\.1)$/.test(location.hostname) && !/[?&]sw\b/.test(location.search);
+if ('serviceWorker' in navigator && location.protocol !== 'file:' && !DEV) {
+  window.addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => {}));
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,3045 @@
+{
+ "summary": {
+  "stacks_compared": 189,
+  "hand_cells": 31941,
+  "raw_equilibrium": {
+   "push_action_mismatches": 0,
+   "call_action_mismatches": 0,
+   "max_abs_push_pct_diff": 0.0899999999999892,
+   "max_abs_call_pct_diff": 0.04999999999999716
+  },
+  "chart": {
+   "push_mismatches": 62,
+   "call_mismatches": 2,
+   "mismatch_distance_to_chart_threshold_bb": {
+    "median": 0.6000000000000005,
+    "p95": 1.9849999999999994,
+    "max": 2.0999999999999996
+   }
+  }
+ },
+ "rows": [
+  {
+   "stack": 1.2,
+   "push_pct": 100.0,
+   "call_pct": 100.0,
+   "hr_push_pct": 100.0,
+   "hr_call_pct": 100.0,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.0,
+   "call_freq_l1": 0.0,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 1.3,
+   "push_pct": 100.0,
+   "call_pct": 100.0,
+   "hr_push_pct": 100.0,
+   "hr_call_pct": 100.0,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.0,
+   "call_freq_l1": 0.0,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 1.4,
+   "push_pct": 100.0,
+   "call_pct": 100.0,
+   "hr_push_pct": 100.0,
+   "hr_call_pct": 100.0,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.0,
+   "call_freq_l1": 0.0,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 1.5,
+   "push_pct": 98.19,
+   "call_pct": 100.0,
+   "hr_push_pct": 98.19,
+   "hr_call_pct": 100.0,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.0,
+   "call_freq_l1": 0.0,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 1.6,
+   "push_pct": 96.38,
+   "call_pct": 100.0,
+   "hr_push_pct": 96.38,
+   "hr_call_pct": 100.0,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.0,
+   "call_freq_l1": 0.0,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 1.7,
+   "push_pct": 94.57,
+   "call_pct": 100.0,
+   "hr_push_pct": 94.57,
+   "hr_call_pct": 100.0,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.0,
+   "call_freq_l1": 0.0,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 1.8,
+   "push_pct": 93.36,
+   "call_pct": 100.0,
+   "hr_push_pct": 93.36,
+   "hr_call_pct": 100.0,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.001,
+   "call_freq_l1": 0.0,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 1.9,
+   "push_pct": 90.35,
+   "call_pct": 100.0,
+   "hr_push_pct": 90.35,
+   "hr_call_pct": 100.0,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.002,
+   "call_freq_l1": 0.0,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 2.0,
+   "push_pct": 89.44,
+   "call_pct": 100.0,
+   "hr_push_pct": 89.44,
+   "hr_call_pct": 100.0,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.001,
+   "call_freq_l1": 0.0,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 2.1,
+   "push_pct": 87.93,
+   "call_pct": 100.0,
+   "hr_push_pct": 87.93,
+   "hr_call_pct": 100.0,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.0,
+   "call_freq_l1": 0.0,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 2.2,
+   "push_pct": 85.82,
+   "call_pct": 100.0,
+   "hr_push_pct": 85.82,
+   "hr_call_pct": 100.0,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.0,
+   "call_freq_l1": 0.0,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 2.3,
+   "push_pct": 84.62,
+   "call_pct": 100.0,
+   "hr_push_pct": 84.62,
+   "hr_call_pct": 100.0,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.0,
+   "call_freq_l1": 0.0,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 2.4,
+   "push_pct": 83.41,
+   "call_pct": 100.0,
+   "hr_push_pct": 83.41,
+   "hr_call_pct": 100.0,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.0,
+   "call_freq_l1": 0.0,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 2.5,
+   "push_pct": 82.2,
+   "call_pct": 100.0,
+   "hr_push_pct": 82.2,
+   "hr_call_pct": 100.0,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.0,
+   "call_freq_l1": 0.0,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 2.6,
+   "push_pct": 80.69,
+   "call_pct": 100.0,
+   "hr_push_pct": 80.69,
+   "hr_call_pct": 100.0,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.0,
+   "call_freq_l1": 0.0,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 2.7,
+   "push_pct": 79.79,
+   "call_pct": 98.19,
+   "hr_push_pct": 79.79,
+   "hr_call_pct": 98.19,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.0,
+   "call_freq_l1": 0.0,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 2.8,
+   "push_pct": 78.58,
+   "call_pct": 96.38,
+   "hr_push_pct": 78.58,
+   "hr_call_pct": 96.38,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.0,
+   "call_freq_l1": 0.0,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 2.9,
+   "push_pct": 78.58,
+   "call_pct": 94.57,
+   "hr_push_pct": 78.58,
+   "hr_call_pct": 94.57,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.0,
+   "call_freq_l1": 0.0,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 3.0,
+   "push_pct": 77.87,
+   "call_pct": 92.26,
+   "hr_push_pct": 77.96,
+   "hr_call_pct": 92.27,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.235,
+   "call_freq_l1": 0.008,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 3.1,
+   "push_pct": 76.77,
+   "call_pct": 90.05,
+   "hr_push_pct": 76.77,
+   "hr_call_pct": 90.05,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.0,
+   "call_freq_l1": 0.001,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 3.2,
+   "push_pct": 76.77,
+   "call_pct": 88.24,
+   "hr_push_pct": 76.77,
+   "hr_call_pct": 88.24,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.0,
+   "call_freq_l1": 0.005,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 3.3,
+   "push_pct": 76.77,
+   "call_pct": 86.43,
+   "hr_push_pct": 76.77,
+   "hr_call_pct": 86.43,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.0,
+   "call_freq_l1": 0.0,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 3.4,
+   "push_pct": 76.77,
+   "call_pct": 83.72,
+   "hr_push_pct": 76.77,
+   "hr_call_pct": 83.71,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.0,
+   "call_freq_l1": 0.007,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 3.5,
+   "push_pct": 75.54,
+   "call_pct": 83.39,
+   "hr_push_pct": 75.54,
+   "hr_call_pct": 83.4,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.007,
+   "call_freq_l1": 0.005,
+   "chart_push_diff_hands": [
+    "92s"
+   ],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 3.6,
+   "push_pct": 74.66,
+   "call_pct": 81.3,
+   "hr_push_pct": 74.66,
+   "hr_call_pct": 81.3,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.0,
+   "call_freq_l1": 0.0,
+   "chart_push_diff_hands": [
+    "92s"
+   ],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 3.7,
+   "push_pct": 74.96,
+   "call_pct": 77.68,
+   "hr_push_pct": 74.96,
+   "hr_call_pct": 77.68,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.001,
+   "call_freq_l1": 0.0,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 3.8,
+   "push_pct": 74.96,
+   "call_pct": 75.87,
+   "hr_push_pct": 74.96,
+   "hr_call_pct": 75.87,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.0,
+   "call_freq_l1": 0.0,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 3.9,
+   "push_pct": 74.06,
+   "call_pct": 74.36,
+   "hr_push_pct": 74.06,
+   "hr_call_pct": 74.36,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.0,
+   "call_freq_l1": 0.0,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 4.0,
+   "push_pct": 73.76,
+   "call_pct": 74.06,
+   "hr_push_pct": 73.76,
+   "hr_call_pct": 74.06,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.0,
+   "call_freq_l1": 0.0,
+   "chart_push_diff_hands": [
+    "53s"
+   ],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 4.1,
+   "push_pct": 74.06,
+   "call_pct": 71.95,
+   "hr_push_pct": 74.06,
+   "hr_call_pct": 71.95,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.0,
+   "call_freq_l1": 0.0,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 4.2,
+   "push_pct": 73.15,
+   "call_pct": 70.14,
+   "hr_push_pct": 73.15,
+   "hr_call_pct": 70.14,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.0,
+   "call_freq_l1": 0.0,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 4.3,
+   "push_pct": 73.19,
+   "call_pct": 68.2,
+   "hr_push_pct": 73.19,
+   "hr_call_pct": 68.2,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.003,
+   "call_freq_l1": 0.006,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 4.4,
+   "push_pct": 73.15,
+   "call_pct": 67.72,
+   "hr_push_pct": 73.15,
+   "hr_call_pct": 67.72,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.0,
+   "call_freq_l1": 0.0,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 4.5,
+   "push_pct": 73.13,
+   "call_pct": 67.34,
+   "hr_push_pct": 73.13,
+   "hr_call_pct": 67.34,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.0,
+   "call_freq_l1": 0.003,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 4.6,
+   "push_pct": 73.15,
+   "call_pct": 66.52,
+   "hr_push_pct": 73.15,
+   "hr_call_pct": 66.52,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.0,
+   "call_freq_l1": 0.0,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 4.7,
+   "push_pct": 72.22,
+   "call_pct": 65.48,
+   "hr_push_pct": 72.22,
+   "hr_call_pct": 65.51,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.0,
+   "call_freq_l1": 0.029,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 4.8,
+   "push_pct": 72.36,
+   "call_pct": 63.7,
+   "hr_push_pct": 72.36,
+   "hr_call_pct": 63.7,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.001,
+   "call_freq_l1": 0.001,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 4.9,
+   "push_pct": 72.55,
+   "call_pct": 62.59,
+   "hr_push_pct": 72.55,
+   "hr_call_pct": 62.59,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.0,
+   "call_freq_l1": 0.0,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 5.0,
+   "push_pct": 71.48,
+   "call_pct": 62.07,
+   "hr_push_pct": 71.49,
+   "hr_call_pct": 62.07,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.008,
+   "call_freq_l1": 0.005,
+   "chart_push_diff_hands": [
+    "96o"
+   ],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 5.1,
+   "push_pct": 71.05,
+   "call_pct": 60.91,
+   "hr_push_pct": 71.03,
+   "hr_call_pct": 60.91,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.021,
+   "call_freq_l1": 0.005,
+   "chart_push_diff_hands": [
+    "96o"
+   ],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 5.2,
+   "push_pct": 71.59,
+   "call_pct": 60.04,
+   "hr_push_pct": 71.58,
+   "hr_call_pct": 60.05,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.006,
+   "call_freq_l1": 0.005,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 5.3,
+   "push_pct": 70.44,
+   "call_pct": 59.58,
+   "hr_push_pct": 70.44,
+   "hr_call_pct": 59.58,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.0,
+   "call_freq_l1": 0.0,
+   "chart_push_diff_hands": [
+    "63s"
+   ],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 5.4,
+   "push_pct": 70.12,
+   "call_pct": 59.24,
+   "hr_push_pct": 70.1,
+   "hr_call_pct": 59.24,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.015,
+   "call_freq_l1": 0.006,
+   "chart_push_diff_hands": [
+    "63s"
+   ],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 5.5,
+   "push_pct": 69.4,
+   "call_pct": 58.26,
+   "hr_push_pct": 69.39,
+   "hr_call_pct": 58.25,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.017,
+   "call_freq_l1": 0.007,
+   "chart_push_diff_hands": [
+    "63s"
+   ],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 5.6,
+   "push_pct": 69.57,
+   "call_pct": 57.36,
+   "hr_push_pct": 69.54,
+   "hr_call_pct": 57.37,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.024,
+   "call_freq_l1": 0.003,
+   "chart_push_diff_hands": [
+    "63s"
+   ],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 5.7,
+   "push_pct": 69.83,
+   "call_pct": 55.96,
+   "hr_push_pct": 69.83,
+   "hr_call_pct": 55.96,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.0,
+   "call_freq_l1": 0.0,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 5.8,
+   "push_pct": 68.42,
+   "call_pct": 55.92,
+   "hr_push_pct": 68.42,
+   "hr_call_pct": 55.92,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.004,
+   "call_freq_l1": 0.003,
+   "chart_push_diff_hands": [
+    "94s",
+    "63s"
+   ],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 5.9,
+   "push_pct": 68.48,
+   "call_pct": 55.09,
+   "hr_push_pct": 68.48,
+   "hr_call_pct": 55.09,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.003,
+   "call_freq_l1": 0.003,
+   "chart_push_diff_hands": [
+    "63s"
+   ],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 6.0,
+   "push_pct": 68.34,
+   "call_pct": 54.44,
+   "hr_push_pct": 68.34,
+   "hr_call_pct": 54.45,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.006,
+   "call_freq_l1": 0.006,
+   "chart_push_diff_hands": [
+    "94s",
+    "63s"
+   ],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 6.1,
+   "push_pct": 67.98,
+   "call_pct": 53.55,
+   "hr_push_pct": 67.98,
+   "hr_call_pct": 53.55,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.004,
+   "call_freq_l1": 0.001,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 6.2,
+   "push_pct": 67.3,
+   "call_pct": 53.31,
+   "hr_push_pct": 67.3,
+   "hr_call_pct": 53.31,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.004,
+   "call_freq_l1": 0.003,
+   "chart_push_diff_hands": [
+    "T2s",
+    "94s"
+   ],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 6.3,
+   "push_pct": 67.59,
+   "call_pct": 52.45,
+   "hr_push_pct": 67.59,
+   "hr_call_pct": 52.46,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.001,
+   "call_freq_l1": 0.012,
+   "chart_push_diff_hands": [
+    "T2s"
+   ],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 6.4,
+   "push_pct": 67.73,
+   "call_pct": 51.76,
+   "hr_push_pct": 67.73,
+   "hr_call_pct": 51.79,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.001,
+   "call_freq_l1": 0.032,
+   "chart_push_diff_hands": [
+    "T2s"
+   ],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 6.5,
+   "push_pct": 68.02,
+   "call_pct": 51.13,
+   "hr_push_pct": 68.02,
+   "hr_call_pct": 51.13,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.0,
+   "call_freq_l1": 0.0,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 6.6,
+   "push_pct": 65.93,
+   "call_pct": 50.82,
+   "hr_push_pct": 65.96,
+   "hr_call_pct": 50.82,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.03,
+   "call_freq_l1": 0.004,
+   "chart_push_diff_hands": [
+    "94s",
+    "86o"
+   ],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 6.7,
+   "push_pct": 66.24,
+   "call_pct": 50.34,
+   "hr_push_pct": 66.24,
+   "hr_call_pct": 50.34,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.002,
+   "call_freq_l1": 0.001,
+   "chart_push_diff_hands": [
+    "94s"
+   ],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 6.8,
+   "push_pct": 66.42,
+   "call_pct": 49.87,
+   "hr_push_pct": 66.41,
+   "hr_call_pct": 49.86,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.017,
+   "call_freq_l1": 0.01,
+   "chart_push_diff_hands": [
+    "94s"
+   ],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 6.9,
+   "push_pct": 66.75,
+   "call_pct": 48.96,
+   "hr_push_pct": 66.75,
+   "hr_call_pct": 48.96,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.001,
+   "call_freq_l1": 0.003,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 7.0,
+   "push_pct": 66.32,
+   "call_pct": 48.61,
+   "hr_push_pct": 66.31,
+   "hr_call_pct": 48.61,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.016,
+   "call_freq_l1": 0.002,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 7.1,
+   "push_pct": 64.93,
+   "call_pct": 48.18,
+   "hr_push_pct": 64.93,
+   "hr_call_pct": 48.17,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.0,
+   "call_freq_l1": 0.005,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 7.2,
+   "push_pct": 64.4,
+   "call_pct": 48.11,
+   "hr_push_pct": 64.4,
+   "hr_call_pct": 48.11,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.0,
+   "call_freq_l1": 0.0,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 7.3,
+   "push_pct": 64.1,
+   "call_pct": 47.81,
+   "hr_push_pct": 64.1,
+   "hr_call_pct": 47.81,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.0,
+   "call_freq_l1": 0.0,
+   "chart_push_diff_hands": [
+    "T3s"
+   ],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 7.4,
+   "push_pct": 64.41,
+   "call_pct": 46.97,
+   "hr_push_pct": 64.41,
+   "hr_call_pct": 46.96,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.002,
+   "call_freq_l1": 0.006,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 7.5,
+   "push_pct": 64.4,
+   "call_pct": 46.61,
+   "hr_push_pct": 64.4,
+   "hr_call_pct": 46.61,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.0,
+   "call_freq_l1": 0.0,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 7.6,
+   "push_pct": 63.2,
+   "call_pct": 46.61,
+   "hr_push_pct": 63.2,
+   "hr_call_pct": 46.61,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.0,
+   "call_freq_l1": 0.0,
+   "chart_push_diff_hands": [
+    "T3s"
+   ],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 7.7,
+   "push_pct": 63.43,
+   "call_pct": 45.83,
+   "hr_push_pct": 63.43,
+   "hr_call_pct": 45.83,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.001,
+   "call_freq_l1": 0.002,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 7.8,
+   "push_pct": 63.2,
+   "call_pct": 45.7,
+   "hr_push_pct": 63.2,
+   "hr_call_pct": 45.7,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.0,
+   "call_freq_l1": 0.0,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 7.9,
+   "push_pct": 62.9,
+   "call_pct": 45.4,
+   "hr_push_pct": 62.9,
+   "hr_call_pct": 45.4,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.0,
+   "call_freq_l1": 0.0,
+   "chart_push_diff_hands": [
+    "43s"
+   ],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 8.0,
+   "push_pct": 61.86,
+   "call_pct": 45.0,
+   "hr_push_pct": 61.86,
+   "hr_call_pct": 44.97,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.003,
+   "call_freq_l1": 0.021,
+   "chart_push_diff_hands": [
+    "84s",
+    "43s"
+   ],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 8.1,
+   "push_pct": 61.75,
+   "call_pct": 44.47,
+   "hr_push_pct": 61.78,
+   "hr_call_pct": 44.47,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.025,
+   "call_freq_l1": 0.005,
+   "chart_push_diff_hands": [
+    "84s",
+    "43s"
+   ],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 8.2,
+   "push_pct": 62.03,
+   "call_pct": 43.99,
+   "hr_push_pct": 62.02,
+   "hr_call_pct": 44.0,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.009,
+   "call_freq_l1": 0.011,
+   "chart_push_diff_hands": [
+    "84s",
+    "43s"
+   ],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 8.3,
+   "push_pct": 62.28,
+   "call_pct": 43.33,
+   "hr_push_pct": 62.31,
+   "hr_call_pct": 43.32,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.031,
+   "call_freq_l1": 0.011,
+   "chart_push_diff_hands": [
+    "84s",
+    "Q4o",
+    "43s"
+   ],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 8.4,
+   "push_pct": 61.93,
+   "call_pct": 42.98,
+   "hr_push_pct": 61.92,
+   "hr_call_pct": 42.98,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.007,
+   "call_freq_l1": 0.004,
+   "chart_push_diff_hands": [
+    "43s"
+   ],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 8.5,
+   "push_pct": 61.96,
+   "call_pct": 42.51,
+   "hr_push_pct": 61.96,
+   "hr_call_pct": 42.51,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.006,
+   "call_freq_l1": 0.005,
+   "chart_push_diff_hands": [
+    "43s"
+   ],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 8.6,
+   "push_pct": 61.09,
+   "call_pct": 42.08,
+   "hr_push_pct": 61.09,
+   "hr_call_pct": 42.08,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.002,
+   "call_freq_l1": 0.0,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 8.7,
+   "push_pct": 60.91,
+   "call_pct": 41.73,
+   "hr_push_pct": 60.92,
+   "hr_call_pct": 41.75,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.004,
+   "call_freq_l1": 0.014,
+   "chart_push_diff_hands": [
+    "43s"
+   ],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 8.8,
+   "push_pct": 61.13,
+   "call_pct": 41.26,
+   "hr_push_pct": 61.13,
+   "hr_call_pct": 41.25,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.004,
+   "call_freq_l1": 0.014,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 8.9,
+   "push_pct": 61.09,
+   "call_pct": 40.87,
+   "hr_push_pct": 61.09,
+   "hr_call_pct": 40.87,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.0,
+   "call_freq_l1": 0.0,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 9.0,
+   "push_pct": 59.88,
+   "call_pct": 40.57,
+   "hr_push_pct": 59.88,
+   "hr_call_pct": 40.57,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.001,
+   "call_freq_l1": 0.0,
+   "chart_push_diff_hands": [
+    "84s"
+   ],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 9.1,
+   "push_pct": 58.82,
+   "call_pct": 40.32,
+   "hr_push_pct": 58.81,
+   "hr_call_pct": 40.33,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.005,
+   "call_freq_l1": 0.005,
+   "chart_push_diff_hands": [
+    "84s",
+    "43s"
+   ],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 9.2,
+   "push_pct": 59.0,
+   "call_pct": 39.89,
+   "hr_push_pct": 59.0,
+   "hr_call_pct": 39.88,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.003,
+   "call_freq_l1": 0.019,
+   "chart_push_diff_hands": [
+    "84s"
+   ],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 9.3,
+   "push_pct": 58.92,
+   "call_pct": 39.64,
+   "hr_push_pct": 58.92,
+   "hr_call_pct": 39.65,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.002,
+   "call_freq_l1": 0.003,
+   "chart_push_diff_hands": [
+    "84s"
+   ],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 9.4,
+   "push_pct": 58.67,
+   "call_pct": 39.37,
+   "hr_push_pct": 58.67,
+   "hr_call_pct": 39.37,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.0,
+   "call_freq_l1": 0.0,
+   "chart_push_diff_hands": [
+    "84s",
+    "43s"
+   ],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 9.5,
+   "push_pct": 58.81,
+   "call_pct": 39.01,
+   "hr_push_pct": 58.81,
+   "hr_call_pct": 39.01,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.002,
+   "call_freq_l1": 0.0,
+   "chart_push_diff_hands": [
+    "84s",
+    "43s"
+   ],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 9.6,
+   "push_pct": 58.96,
+   "call_pct": 38.68,
+   "hr_push_pct": 58.97,
+   "hr_call_pct": 38.67,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.06,
+   "call_freq_l1": 0.009,
+   "chart_push_diff_hands": [
+    "84s"
+   ],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 9.7,
+   "push_pct": 58.32,
+   "call_pct": 38.35,
+   "hr_push_pct": 58.32,
+   "hr_call_pct": 38.35,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.015,
+   "call_freq_l1": 0.01,
+   "chart_push_diff_hands": [
+    "43s"
+   ],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 9.8,
+   "push_pct": 58.49,
+   "call_pct": 37.97,
+   "hr_push_pct": 58.49,
+   "hr_call_pct": 37.98,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.002,
+   "call_freq_l1": 0.042,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 9.9,
+   "push_pct": 58.45,
+   "call_pct": 37.58,
+   "hr_push_pct": 58.45,
+   "hr_call_pct": 37.58,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.007,
+   "call_freq_l1": 0.008,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 10.0,
+   "push_pct": 58.28,
+   "call_pct": 37.37,
+   "hr_push_pct": 58.29,
+   "hr_call_pct": 37.38,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.004,
+   "call_freq_l1": 0.004,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 10.1,
+   "push_pct": 57.27,
+   "call_pct": 37.22,
+   "hr_push_pct": 57.25,
+   "hr_call_pct": 37.22,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.033,
+   "call_freq_l1": 0.003,
+   "chart_push_diff_hands": [
+    "Q7o"
+   ],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 10.2,
+   "push_pct": 57.39,
+   "call_pct": 36.89,
+   "hr_push_pct": 57.39,
+   "hr_call_pct": 36.87,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.106,
+   "call_freq_l1": 0.011,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 10.3,
+   "push_pct": 57.56,
+   "call_pct": 36.55,
+   "hr_push_pct": 57.54,
+   "hr_call_pct": 36.54,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.02,
+   "call_freq_l1": 0.011,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 10.4,
+   "push_pct": 56.86,
+   "call_pct": 36.35,
+   "hr_push_pct": 56.86,
+   "hr_call_pct": 36.35,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.0,
+   "call_freq_l1": 0.0,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 10.5,
+   "push_pct": 56.86,
+   "call_pct": 36.35,
+   "hr_push_pct": 56.86,
+   "hr_call_pct": 36.35,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.0,
+   "call_freq_l1": 0.0,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 10.6,
+   "push_pct": 56.41,
+   "call_pct": 36.12,
+   "hr_push_pct": 56.41,
+   "hr_call_pct": 36.11,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.002,
+   "call_freq_l1": 0.004,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 10.7,
+   "push_pct": 56.08,
+   "call_pct": 35.89,
+   "hr_push_pct": 56.1,
+   "hr_call_pct": 35.89,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.019,
+   "call_freq_l1": 0.003,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 10.8,
+   "push_pct": 55.64,
+   "call_pct": 35.6,
+   "hr_push_pct": 55.64,
+   "hr_call_pct": 35.6,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.002,
+   "call_freq_l1": 0.002,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": [
+    "K2s"
+   ]
+  },
+  {
+   "stack": 10.9,
+   "push_pct": 54.45,
+   "call_pct": 35.44,
+   "hr_push_pct": 54.45,
+   "hr_call_pct": 35.44,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.0,
+   "call_freq_l1": 0.0,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 11.0,
+   "push_pct": 54.5,
+   "call_pct": 35.06,
+   "hr_push_pct": 54.49,
+   "hr_call_pct": 35.05,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.008,
+   "call_freq_l1": 0.015,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 11.1,
+   "push_pct": 54.6,
+   "call_pct": 34.8,
+   "hr_push_pct": 54.61,
+   "hr_call_pct": 34.78,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.008,
+   "call_freq_l1": 0.012,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 11.2,
+   "push_pct": 54.65,
+   "call_pct": 34.55,
+   "hr_push_pct": 54.64,
+   "hr_call_pct": 34.55,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.007,
+   "call_freq_l1": 0.002,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 11.3,
+   "push_pct": 54.45,
+   "call_pct": 34.54,
+   "hr_push_pct": 54.45,
+   "hr_call_pct": 34.54,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.0,
+   "call_freq_l1": 0.0,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 11.4,
+   "push_pct": 54.19,
+   "call_pct": 34.5,
+   "hr_push_pct": 54.19,
+   "hr_call_pct": 34.5,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.002,
+   "call_freq_l1": 0.004,
+   "chart_push_diff_hands": [
+    "T5s"
+   ],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 11.5,
+   "push_pct": 54.29,
+   "call_pct": 34.2,
+   "hr_push_pct": 54.29,
+   "hr_call_pct": 34.2,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.005,
+   "call_freq_l1": 0.001,
+   "chart_push_diff_hands": [
+    "T5s"
+   ],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 11.6,
+   "push_pct": 54.4,
+   "call_pct": 33.95,
+   "hr_push_pct": 54.4,
+   "hr_call_pct": 33.95,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.002,
+   "call_freq_l1": 0.001,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 11.7,
+   "push_pct": 53.35,
+   "call_pct": 33.7,
+   "hr_push_pct": 53.35,
+   "hr_call_pct": 33.72,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.003,
+   "call_freq_l1": 0.016,
+   "chart_push_diff_hands": [
+    "T5s"
+   ],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 11.8,
+   "push_pct": 53.46,
+   "call_pct": 33.47,
+   "hr_push_pct": 53.46,
+   "hr_call_pct": 33.46,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.004,
+   "call_freq_l1": 0.009,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 11.9,
+   "push_pct": 53.54,
+   "call_pct": 33.03,
+   "hr_push_pct": 53.54,
+   "hr_call_pct": 33.03,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.0,
+   "call_freq_l1": 0.0,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 12.0,
+   "push_pct": 53.24,
+   "call_pct": 33.03,
+   "hr_push_pct": 53.24,
+   "hr_call_pct": 33.03,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.0,
+   "call_freq_l1": 0.0,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 12.1,
+   "push_pct": 52.15,
+   "call_pct": 32.99,
+   "hr_push_pct": 52.15,
+   "hr_call_pct": 32.98,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.007,
+   "call_freq_l1": 0.014,
+   "chart_push_diff_hands": [
+    "J8o",
+    "74s"
+   ],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 12.2,
+   "push_pct": 52.18,
+   "call_pct": 32.75,
+   "hr_push_pct": 52.18,
+   "hr_call_pct": 32.75,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.027,
+   "call_freq_l1": 0.029,
+   "chart_push_diff_hands": [
+    "J8o"
+   ],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 12.3,
+   "push_pct": 51.47,
+   "call_pct": 32.45,
+   "hr_push_pct": 51.47,
+   "hr_call_pct": 32.5,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.013,
+   "call_freq_l1": 0.09,
+   "chart_push_diff_hands": [
+    "J8o"
+   ],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 12.4,
+   "push_pct": 51.57,
+   "call_pct": 32.17,
+   "hr_push_pct": 51.58,
+   "hr_call_pct": 32.16,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.029,
+   "call_freq_l1": 0.02,
+   "chart_push_diff_hands": [
+    "J8o"
+   ],
+   "chart_call_diff_hands": [
+    "K7o"
+   ]
+  },
+  {
+   "stack": 12.5,
+   "push_pct": 51.67,
+   "call_pct": 31.88,
+   "hr_push_pct": 51.71,
+   "hr_call_pct": 31.88,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.041,
+   "call_freq_l1": 0.005,
+   "chart_push_diff_hands": [
+    "J8o"
+   ],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 12.6,
+   "push_pct": 51.69,
+   "call_pct": 31.64,
+   "hr_push_pct": 51.67,
+   "hr_call_pct": 31.66,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.02,
+   "call_freq_l1": 0.019,
+   "chart_push_diff_hands": [
+    "J8o"
+   ],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 12.7,
+   "push_pct": 51.75,
+   "call_pct": 31.48,
+   "hr_push_pct": 51.74,
+   "hr_call_pct": 31.47,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.005,
+   "call_freq_l1": 0.008,
+   "chart_push_diff_hands": [
+    "J8o"
+   ],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 12.8,
+   "push_pct": 51.47,
+   "call_pct": 31.29,
+   "hr_push_pct": 51.48,
+   "hr_call_pct": 31.29,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.01,
+   "call_freq_l1": 0.002,
+   "chart_push_diff_hands": [
+    "J8o"
+   ],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 12.9,
+   "push_pct": 51.52,
+   "call_pct": 31.12,
+   "hr_push_pct": 51.54,
+   "hr_call_pct": 31.13,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.056,
+   "call_freq_l1": 0.003,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 13.0,
+   "push_pct": 51.53,
+   "call_pct": 30.95,
+   "hr_push_pct": 51.54,
+   "hr_call_pct": 30.96,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.011,
+   "call_freq_l1": 0.008,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 13.1,
+   "push_pct": 50.61,
+   "call_pct": 30.81,
+   "hr_push_pct": 50.61,
+   "hr_call_pct": 30.81,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.008,
+   "call_freq_l1": 0.003,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 13.2,
+   "push_pct": 49.74,
+   "call_pct": 30.63,
+   "hr_push_pct": 49.75,
+   "hr_call_pct": 30.63,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.017,
+   "call_freq_l1": 0.036,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 13.3,
+   "push_pct": 49.82,
+   "call_pct": 30.42,
+   "hr_push_pct": 49.82,
+   "hr_call_pct": 30.38,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.006,
+   "call_freq_l1": 0.074,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 13.4,
+   "push_pct": 49.3,
+   "call_pct": 30.23,
+   "hr_push_pct": 49.29,
+   "hr_call_pct": 30.23,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.009,
+   "call_freq_l1": 0.001,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 13.5,
+   "push_pct": 49.34,
+   "call_pct": 30.07,
+   "hr_push_pct": 49.34,
+   "hr_call_pct": 30.07,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.003,
+   "call_freq_l1": 0.001,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 13.6,
+   "push_pct": 48.42,
+   "call_pct": 30.02,
+   "hr_push_pct": 48.42,
+   "hr_call_pct": 30.02,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.0,
+   "call_freq_l1": 0.0,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 13.7,
+   "push_pct": 48.23,
+   "call_pct": 29.87,
+   "hr_push_pct": 48.22,
+   "hr_call_pct": 29.87,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.003,
+   "call_freq_l1": 0.005,
+   "chart_push_diff_hands": [
+    "74s"
+   ],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 13.8,
+   "push_pct": 48.31,
+   "call_pct": 29.67,
+   "hr_push_pct": 48.3,
+   "hr_call_pct": 29.67,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.007,
+   "call_freq_l1": 0.003,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 13.9,
+   "push_pct": 48.36,
+   "call_pct": 29.45,
+   "hr_push_pct": 48.38,
+   "hr_call_pct": 29.48,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.085,
+   "call_freq_l1": 0.029,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 14.0,
+   "push_pct": 48.37,
+   "call_pct": 29.31,
+   "hr_push_pct": 48.36,
+   "hr_call_pct": 29.3,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.01,
+   "call_freq_l1": 0.01,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 14.1,
+   "push_pct": 48.39,
+   "call_pct": 29.15,
+   "hr_push_pct": 48.4,
+   "hr_call_pct": 29.16,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.009,
+   "call_freq_l1": 0.004,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 14.2,
+   "push_pct": 48.11,
+   "call_pct": 29.11,
+   "hr_push_pct": 48.11,
+   "hr_call_pct": 29.11,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.0,
+   "call_freq_l1": 0.0,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 14.3,
+   "push_pct": 47.36,
+   "call_pct": 29.06,
+   "hr_push_pct": 47.35,
+   "hr_call_pct": 29.06,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.009,
+   "call_freq_l1": 0.003,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 14.4,
+   "push_pct": 47.38,
+   "call_pct": 28.81,
+   "hr_push_pct": 47.43,
+   "hr_call_pct": 28.81,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.049,
+   "call_freq_l1": 0.002,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 14.5,
+   "push_pct": 46.91,
+   "call_pct": 28.81,
+   "hr_push_pct": 46.91,
+   "hr_call_pct": 28.81,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.0,
+   "call_freq_l1": 0.0,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 14.6,
+   "push_pct": 46.91,
+   "call_pct": 28.81,
+   "hr_push_pct": 46.91,
+   "hr_call_pct": 28.81,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.0,
+   "call_freq_l1": 0.0,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 14.7,
+   "push_pct": 46.91,
+   "call_pct": 28.81,
+   "hr_push_pct": 46.91,
+   "hr_call_pct": 28.81,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.0,
+   "call_freq_l1": 0.0,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 14.8,
+   "push_pct": 45.7,
+   "call_pct": 28.81,
+   "hr_push_pct": 45.7,
+   "hr_call_pct": 28.81,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.001,
+   "call_freq_l1": 0.0,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 14.9,
+   "push_pct": 45.6,
+   "call_pct": 28.71,
+   "hr_push_pct": 45.6,
+   "hr_call_pct": 28.7,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.0,
+   "call_freq_l1": 0.008,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 15.0,
+   "push_pct": 45.66,
+   "call_pct": 28.55,
+   "hr_push_pct": 45.66,
+   "hr_call_pct": 28.55,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.003,
+   "call_freq_l1": 0.001,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 15.1,
+   "push_pct": 45.48,
+   "call_pct": 28.17,
+   "hr_push_pct": 45.47,
+   "hr_call_pct": 28.18,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.012,
+   "call_freq_l1": 0.027,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 15.2,
+   "push_pct": 44.83,
+   "call_pct": 27.88,
+   "hr_push_pct": 44.83,
+   "hr_call_pct": 27.89,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.003,
+   "call_freq_l1": 0.014,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 15.3,
+   "push_pct": 44.89,
+   "call_pct": 27.7,
+   "hr_push_pct": 44.88,
+   "hr_call_pct": 27.73,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.004,
+   "call_freq_l1": 0.03,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 15.4,
+   "push_pct": 44.82,
+   "call_pct": 27.52,
+   "hr_push_pct": 44.82,
+   "hr_call_pct": 27.52,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.002,
+   "call_freq_l1": 0.005,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 15.5,
+   "push_pct": 44.88,
+   "call_pct": 27.38,
+   "hr_push_pct": 44.88,
+   "hr_call_pct": 27.36,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.003,
+   "call_freq_l1": 0.02,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 15.6,
+   "push_pct": 44.9,
+   "call_pct": 27.21,
+   "hr_push_pct": 44.92,
+   "hr_call_pct": 27.22,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.026,
+   "call_freq_l1": 0.008,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 15.7,
+   "push_pct": 44.58,
+   "call_pct": 27.03,
+   "hr_push_pct": 44.58,
+   "hr_call_pct": 27.03,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.001,
+   "call_freq_l1": 0.002,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 15.8,
+   "push_pct": 44.64,
+   "call_pct": 26.85,
+   "hr_push_pct": 44.64,
+   "hr_call_pct": 26.85,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.002,
+   "call_freq_l1": 0.002,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 15.9,
+   "push_pct": 44.69,
+   "call_pct": 26.67,
+   "hr_push_pct": 44.7,
+   "hr_call_pct": 26.65,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.006,
+   "call_freq_l1": 0.014,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 16.0,
+   "push_pct": 44.75,
+   "call_pct": 26.47,
+   "hr_push_pct": 44.75,
+   "hr_call_pct": 26.48,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.003,
+   "call_freq_l1": 0.007,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 16.1,
+   "push_pct": 44.83,
+   "call_pct": 26.17,
+   "hr_push_pct": 44.83,
+   "hr_call_pct": 26.15,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.002,
+   "call_freq_l1": 0.011,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 16.2,
+   "push_pct": 43.91,
+   "call_pct": 26.03,
+   "hr_push_pct": 43.91,
+   "hr_call_pct": 26.02,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.003,
+   "call_freq_l1": 0.008,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 16.3,
+   "push_pct": 43.89,
+   "call_pct": 25.94,
+   "hr_push_pct": 43.89,
+   "hr_call_pct": 25.94,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.0,
+   "call_freq_l1": 0.0,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 16.4,
+   "push_pct": 43.29,
+   "call_pct": 25.94,
+   "hr_push_pct": 43.29,
+   "hr_call_pct": 25.94,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.0,
+   "call_freq_l1": 0.0,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 16.5,
+   "push_pct": 42.93,
+   "call_pct": 25.86,
+   "hr_push_pct": 42.95,
+   "hr_call_pct": 25.86,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.025,
+   "call_freq_l1": 0.001,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 16.6,
+   "push_pct": 43.01,
+   "call_pct": 25.63,
+   "hr_push_pct": 43.02,
+   "hr_call_pct": 25.63,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.008,
+   "call_freq_l1": 0.002,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 16.7,
+   "push_pct": 43.09,
+   "call_pct": 25.37,
+   "hr_push_pct": 43.09,
+   "hr_call_pct": 25.38,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.005,
+   "call_freq_l1": 0.012,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 16.8,
+   "push_pct": 43.17,
+   "call_pct": 25.15,
+   "hr_push_pct": 43.16,
+   "hr_call_pct": 25.15,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.005,
+   "call_freq_l1": 0.008,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 16.9,
+   "push_pct": 42.91,
+   "call_pct": 24.97,
+   "hr_push_pct": 42.87,
+   "hr_call_pct": 24.97,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.039,
+   "call_freq_l1": 0.002,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 17.0,
+   "push_pct": 42.93,
+   "call_pct": 24.82,
+   "hr_push_pct": 42.93,
+   "hr_call_pct": 24.83,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.004,
+   "call_freq_l1": 0.011,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 17.1,
+   "push_pct": 42.97,
+   "call_pct": 24.68,
+   "hr_push_pct": 42.97,
+   "hr_call_pct": 24.69,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.001,
+   "call_freq_l1": 0.017,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 17.2,
+   "push_pct": 43.02,
+   "call_pct": 24.54,
+   "hr_push_pct": 43.01,
+   "hr_call_pct": 24.56,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.01,
+   "call_freq_l1": 0.015,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 17.3,
+   "push_pct": 43.06,
+   "call_pct": 24.4,
+   "hr_push_pct": 43.05,
+   "hr_call_pct": 24.42,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.008,
+   "call_freq_l1": 0.02,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 17.4,
+   "push_pct": 43.1,
+   "call_pct": 24.28,
+   "hr_push_pct": 43.11,
+   "hr_call_pct": 24.29,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.011,
+   "call_freq_l1": 0.008,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 17.5,
+   "push_pct": 43.11,
+   "call_pct": 24.16,
+   "hr_push_pct": 43.12,
+   "hr_call_pct": 24.15,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.009,
+   "call_freq_l1": 0.004,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 17.6,
+   "push_pct": 42.69,
+   "call_pct": 24.05,
+   "hr_push_pct": 42.67,
+   "hr_call_pct": 24.05,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.018,
+   "call_freq_l1": 0.003,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 17.7,
+   "push_pct": 42.71,
+   "call_pct": 23.95,
+   "hr_push_pct": 42.71,
+   "hr_call_pct": 23.95,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.003,
+   "call_freq_l1": 0.005,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 17.8,
+   "push_pct": 42.72,
+   "call_pct": 23.85,
+   "hr_push_pct": 42.74,
+   "hr_call_pct": 23.84,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.012,
+   "call_freq_l1": 0.004,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 17.9,
+   "push_pct": 42.38,
+   "call_pct": 23.83,
+   "hr_push_pct": 42.38,
+   "hr_call_pct": 23.83,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.0,
+   "call_freq_l1": 0.0,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 18.0,
+   "push_pct": 42.35,
+   "call_pct": 23.77,
+   "hr_push_pct": 42.35,
+   "hr_call_pct": 23.77,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.002,
+   "call_freq_l1": 0.001,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 18.1,
+   "push_pct": 41.62,
+   "call_pct": 23.57,
+   "hr_push_pct": 41.62,
+   "hr_call_pct": 23.57,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.01,
+   "call_freq_l1": 0.019,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 18.2,
+   "push_pct": 41.67,
+   "call_pct": 23.39,
+   "hr_push_pct": 41.66,
+   "hr_call_pct": 23.38,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.009,
+   "call_freq_l1": 0.022,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 18.3,
+   "push_pct": 41.71,
+   "call_pct": 23.23,
+   "hr_push_pct": 41.71,
+   "hr_call_pct": 23.21,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.021,
+   "call_freq_l1": 0.025,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 18.4,
+   "push_pct": 41.77,
+   "call_pct": 23.05,
+   "hr_push_pct": 41.76,
+   "hr_call_pct": 23.05,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.05,
+   "call_freq_l1": 0.005,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 18.5,
+   "push_pct": 41.76,
+   "call_pct": 22.89,
+   "hr_push_pct": 41.78,
+   "hr_call_pct": 22.9,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.015,
+   "call_freq_l1": 0.004,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 18.6,
+   "push_pct": 41.81,
+   "call_pct": 22.75,
+   "hr_push_pct": 41.81,
+   "hr_call_pct": 22.77,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.002,
+   "call_freq_l1": 0.016,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 18.7,
+   "push_pct": 41.18,
+   "call_pct": 22.62,
+   "hr_push_pct": 41.18,
+   "hr_call_pct": 22.62,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.0,
+   "call_freq_l1": 0.0,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 18.8,
+   "push_pct": 41.18,
+   "call_pct": 22.62,
+   "hr_push_pct": 41.18,
+   "hr_call_pct": 22.62,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.0,
+   "call_freq_l1": 0.0,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 18.9,
+   "push_pct": 40.87,
+   "call_pct": 22.62,
+   "hr_push_pct": 40.87,
+   "hr_call_pct": 22.62,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.0,
+   "call_freq_l1": 0.0,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 19.0,
+   "push_pct": 40.87,
+   "call_pct": 22.62,
+   "hr_push_pct": 40.87,
+   "hr_call_pct": 22.62,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.0,
+   "call_freq_l1": 0.0,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 19.1,
+   "push_pct": 40.78,
+   "call_pct": 22.6,
+   "hr_push_pct": 40.78,
+   "hr_call_pct": 22.6,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.0,
+   "call_freq_l1": 0.004,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 19.2,
+   "push_pct": 40.81,
+   "call_pct": 22.49,
+   "hr_push_pct": 40.81,
+   "hr_call_pct": 22.5,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.005,
+   "call_freq_l1": 0.009,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 19.3,
+   "push_pct": 40.84,
+   "call_pct": 22.39,
+   "hr_push_pct": 40.84,
+   "hr_call_pct": 22.4,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.001,
+   "call_freq_l1": 0.013,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 19.4,
+   "push_pct": 40.47,
+   "call_pct": 22.29,
+   "hr_push_pct": 40.47,
+   "hr_call_pct": 22.31,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.001,
+   "call_freq_l1": 0.018,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 19.5,
+   "push_pct": 40.5,
+   "call_pct": 22.19,
+   "hr_push_pct": 40.5,
+   "hr_call_pct": 22.2,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.002,
+   "call_freq_l1": 0.014,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 19.6,
+   "push_pct": 40.53,
+   "call_pct": 22.11,
+   "hr_push_pct": 40.53,
+   "hr_call_pct": 22.08,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.0,
+   "call_freq_l1": 0.026,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 19.7,
+   "push_pct": 40.56,
+   "call_pct": 21.97,
+   "hr_push_pct": 40.56,
+   "hr_call_pct": 22.0,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.001,
+   "call_freq_l1": 0.03,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 19.8,
+   "push_pct": 40.57,
+   "call_pct": 21.72,
+   "hr_push_pct": 40.57,
+   "hr_call_pct": 21.72,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.0,
+   "call_freq_l1": 0.0,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 19.9,
+   "push_pct": 40.46,
+   "call_pct": 21.78,
+   "hr_push_pct": 40.46,
+   "hr_call_pct": 21.77,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.005,
+   "call_freq_l1": 0.003,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  },
+  {
+   "stack": 20.0,
+   "push_pct": 40.24,
+   "call_pct": 21.73,
+   "hr_push_pct": 40.2,
+   "hr_call_pct": 21.72,
+   "raw_push_diff_hands": [],
+   "raw_call_diff_hands": [],
+   "push_freq_l1": 0.037,
+   "call_freq_l1": 0.006,
+   "chart_push_diff_hands": [],
+   "chart_call_diff_hands": []
+  }
+ ],
+ "chart_mismatches": [
+  [
+   "push",
+   3.5,
+   "92s",
+   0.0,
+   3.7
+  ],
+  [
+   "push",
+   3.6,
+   "92s",
+   0.0,
+   3.7
+  ],
+  [
+   "push",
+   4.0,
+   "53s",
+   0.0,
+   "12.9 - 3.8, 2.4"
+  ],
+  [
+   "push",
+   5.0,
+   "96o",
+   0.152,
+   5.2
+  ],
+  [
+   "push",
+   5.1,
+   "96o",
+   0.342,
+   5.2
+  ],
+  [
+   "push",
+   5.3,
+   "63s",
+   0.0,
+   "7.1 - 5.1, 2.3"
+  ],
+  [
+   "push",
+   5.4,
+   "63s",
+   0.0,
+   "7.1 - 5.1, 2.3"
+  ],
+  [
+   "push",
+   5.5,
+   "63s",
+   0.0,
+   "7.1 - 5.1, 2.3"
+  ],
+  [
+   "push",
+   5.6,
+   "63s",
+   0.342,
+   "7.1 - 5.1, 2.3"
+  ],
+  [
+   "push",
+   5.8,
+   "94s",
+   0.307,
+   6.9
+  ],
+  [
+   "push",
+   5.8,
+   "63s",
+   0.0,
+   "7.1 - 5.1, 2.3"
+  ],
+  [
+   "push",
+   5.9,
+   "63s",
+   0.005,
+   "7.1 - 5.1, 2.3"
+  ],
+  [
+   "push",
+   6.0,
+   "94s",
+   0.001,
+   6.9
+  ],
+  [
+   "push",
+   6.0,
+   "63s",
+   0.052,
+   "7.1 - 5.1, 2.3"
+  ],
+  [
+   "push",
+   6.2,
+   "T2s",
+   0.0,
+   6.5
+  ],
+  [
+   "push",
+   6.2,
+   "94s",
+   0.0,
+   6.9
+  ],
+  [
+   "push",
+   6.3,
+   "T2s",
+   0.0,
+   6.5
+  ],
+  [
+   "push",
+   6.4,
+   "T2s",
+   0.021,
+   6.5
+  ],
+  [
+   "push",
+   6.6,
+   "94s",
+   0.0,
+   6.9
+  ],
+  [
+   "push",
+   6.6,
+   "86o",
+   0.357,
+   7.0
+  ],
+  [
+   "push",
+   6.7,
+   "94s",
+   0.0,
+   6.9
+  ],
+  [
+   "push",
+   6.8,
+   "94s",
+   0.0,
+   6.9
+  ],
+  [
+   "push",
+   7.3,
+   "T3s",
+   0.0,
+   7.7
+  ],
+  [
+   "push",
+   7.6,
+   "T3s",
+   0.0,
+   7.7
+  ],
+  [
+   "push",
+   7.9,
+   "43s",
+   0.001,
+   "10.0 - 4.9, 2.2"
+  ],
+  [
+   "push",
+   8.0,
+   "84s",
+   0.0,
+   10.1
+  ],
+  [
+   "push",
+   8.0,
+   "43s",
+   0.0,
+   "10.0 - 4.9, 2.2"
+  ],
+  [
+   "push",
+   8.1,
+   "84s",
+   0.0,
+   10.1
+  ],
+  [
+   "push",
+   8.1,
+   "43s",
+   0.0,
+   "10.0 - 4.9, 2.2"
+  ],
+  [
+   "push",
+   8.2,
+   "84s",
+   0.0,
+   10.1
+  ],
+  [
+   "push",
+   8.2,
+   "43s",
+   0.0,
+   "10.0 - 4.9, 2.2"
+  ],
+  [
+   "push",
+   8.3,
+   "84s",
+   0.153,
+   10.1
+  ],
+  [
+   "push",
+   8.3,
+   "Q4o",
+   0.601,
+   7.9
+  ],
+  [
+   "push",
+   8.3,
+   "43s",
+   0.0,
+   "10.0 - 4.9, 2.2"
+  ],
+  [
+   "push",
+   8.4,
+   "43s",
+   0.001,
+   "10.0 - 4.9, 2.2"
+  ],
+  [
+   "push",
+   8.5,
+   "43s",
+   0.479,
+   "10.0 - 4.9, 2.2"
+  ],
+  [
+   "push",
+   8.7,
+   "43s",
+   0.429,
+   "10.0 - 4.9, 2.2"
+  ],
+  [
+   "push",
+   9.0,
+   "84s",
+   0.0,
+   10.1
+  ],
+  [
+   "push",
+   9.1,
+   "84s",
+   0.0,
+   10.1
+  ],
+  [
+   "push",
+   9.1,
+   "43s",
+   0.485,
+   "10.0 - 4.9, 2.2"
+  ],
+  [
+   "push",
+   9.2,
+   "84s",
+   0.079,
+   10.1
+  ],
+  [
+   "push",
+   9.3,
+   "84s",
+   0.001,
+   10.1
+  ],
+  [
+   "push",
+   9.4,
+   "84s",
+   0.0,
+   10.1
+  ],
+  [
+   "push",
+   9.4,
+   "43s",
+   0.0,
+   "10.0 - 4.9, 2.2"
+  ],
+  [
+   "push",
+   9.5,
+   "84s",
+   0.001,
+   10.1
+  ],
+  [
+   "push",
+   9.5,
+   "43s",
+   0.464,
+   "10.0 - 4.9, 2.2"
+  ],
+  [
+   "push",
+   9.6,
+   "84s",
+   0.442,
+   10.1
+  ],
+  [
+   "push",
+   9.7,
+   "43s",
+   0.314,
+   "10.0 - 4.9, 2.2"
+  ],
+  [
+   "push",
+   10.1,
+   "Q7o",
+   0.279,
+   10.3
+  ],
+  [
+   "call",
+   10.8,
+   "K2s",
+   0.507,
+   10.7
+  ],
+  [
+   "push",
+   11.4,
+   "T5s",
+   0.137,
+   11.9
+  ],
+  [
+   "push",
+   11.5,
+   "T5s",
+   0.455,
+   11.9
+  ],
+  [
+   "push",
+   11.7,
+   "T5s",
+   0.362,
+   11.9
+  ],
+  [
+   "push",
+   12.1,
+   "J8o",
+   0.024,
+   13.3
+  ],
+  [
+   "push",
+   12.1,
+   "74s",
+   0.309,
+   13.9
+  ],
+  [
+   "push",
+   12.2,
+   "J8o",
+   0.009,
+   13.3
+  ],
+  [
+   "push",
+   12.3,
+   "J8o",
+   0.025,
+   13.3
+  ],
+  [
+   "push",
+   12.4,
+   "J8o",
+   0.092,
+   13.3
+  ],
+  [
+   "call",
+   12.4,
+   "K7o",
+   0.476,
+   12.4
+  ],
+  [
+   "push",
+   12.5,
+   "J8o",
+   0.186,
+   13.3
+  ],
+  [
+   "push",
+   12.6,
+   "J8o",
+   0.281,
+   13.3
+  ],
+  [
+   "push",
+   12.7,
+   "J8o",
+   0.345,
+   13.3
+  ],
+  [
+   "push",
+   12.8,
+   "J8o",
+   0.37,
+   13.3
+  ],
+  [
+   "push",
+   13.7,
+   "74s",
+   0.37,
+   13.9
+  ]
+ ]
+}

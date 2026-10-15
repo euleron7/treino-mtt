@@ -1,0 +1,25 @@
+{
+ "items": [
+  {
+   "ref": "Heads-up sem ante — dados brutos do HRC (1,2–19,9bb)",
+   "result": "0 decisões diferentes em 63.882 (push e call)"
+  },
+  {
+   "ref": "HRC 9-max 7,5bb (ante 0,1)",
+   "result": "9 ranges, 8 idênticos mão a mão; 1 mão diferente, a no máximo 0,001bb da indiferença"
+  },
+  {
+   "ref": "PokerCoaching com ante, 5–15bb",
+   "result": "484 ranges, 388 idênticos mão a mão; 114 mãos diferentes, todas a no máximo 0,046bb da indiferença"
+  },
+  {
+   "ref": "PokerCoaching sem ante, 5–15bb",
+   "result": "484 ranges, 427 idênticos mão a mão; 60 mãos diferentes, todas a no máximo 0,028bb da indiferença"
+  },
+  {
+   "ref": "ICMIZER 9-max 12bb (imagem)",
+   "result": "8 ranges, 0 idênticos mão a mão; 33 mãos diferentes, todas a no máximo 0,168bb da indiferença"
+  }
+ ],
+ "note": "Diferenças restantes ficam em mãos mistas ou a poucos centésimos de bb da indiferença; tabelas publicadas arredondam mãos mistas para push ou fold."
+}

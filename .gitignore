@@ -1,0 +1,13 @@
+# grandes e reproduzíveis (python -m solver.equity_hu / solver.equity_3way)
+data/*.npz
+data/*.log
+# material de terceiros baixado só para conferência local (ver VALIDACAO.md para as fontes)
+research/
+# artefatos locais de verificação e testes de navegador
+verify/
+.playwright-mcp/
+__pycache__/
+*.pyc
+# soluções auxiliares (variante de 1 caller e rodadas de validação): reproduzíveis com data/run_chain.sh
+data/solutions/*
+!data/solutions/9max_bbante_mc2.json

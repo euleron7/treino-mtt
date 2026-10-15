@@ -1,0 +1,17 @@
+{
+  "name": "Treino MTT — push/fold, call e outs",
+  "short_name": "Treino MTT",
+  "description": "Treino de torneio offline: ranges Nash de push/fold, call contra all-in e contagem de outs.",
+  "lang": "pt-BR",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0b1512",
+  "theme_color": "#0b1512",
+  "icons": [
+    {"src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any"},
+    {"src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any"},
+    {"src": "icons/maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable"}
+  ]
+}
